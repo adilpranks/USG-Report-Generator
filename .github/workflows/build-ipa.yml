@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['web/**', 'ios/**']
     tags: ['v*']
 permissions:
   contents: write
