@@ -38,7 +38,11 @@ jobs:
         run: |
           mkdir -p ~/.android
           if [ -n "$KS" ]; then echo "$KS" | base64 -d > ~/.android/debug.keystore; echo "Using stored signing key"
+          elif [[ "$GITHUB_REF" == refs/tags/* ]]; then echo "::error::ANDROID_DEBUG_KEYSTORE_B64 secret missing – refusing to publish a release APK signed with the wrong key"; exit 1
           else echo "::warning::ANDROID_DEBUG_KEYSTORE_B64 not set – APK signed with a throwaway key (will not update an existing install)"; fi
+      - name: Verify signing key
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        run: keytool -list -keystore ~/.android/debug.keystore -storepass android | grep -q "87:DB:BC:87:22:75:12:D2" || { echo "::error::Keystore is not the expected key (SHA-256 87:DB:BC…)"; exit 1; }
       - name: Build APK
         run: |
           rm -rf android/app/src/main/assets && cp -R web android/app/src/main/assets
