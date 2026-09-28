@@ -15,7 +15,7 @@ jobs:
   ios:
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build unsigned IPA
         run: ./ios/build-ipa.sh
       - uses: actions/upload-artifact@v4
@@ -24,12 +24,15 @@ jobs:
   android:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
         with: { distribution: temurin, java-version: '17' }
-      - uses: android-actions/setup-android@v3
-      - name: SDK packages
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0" > /dev/null
+      - name: SDK packages (runner's preinstalled Android SDK)
+        run: |
+          SM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SM" --licenses > /dev/null || true
+          "$SM" "platforms;android-36" "build-tools;36.0.0" > /dev/null
+          echo "sdk.dir=$ANDROID_HOME" > android/local.properties
       - name: Signing key
         env: { KS: '${{ secrets.ANDROID_DEBUG_KEYSTORE_B64 }}' }
         run: |
