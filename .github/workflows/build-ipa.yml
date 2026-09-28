@@ -1,0 +1,28 @@
+# Builds an unsigned USG Reporter .ipa on GitHub's macOS machines (they have Xcode).
+# Push this USGReporter folder to a GitHub repo → Actions tab → "Build iOS IPA" → Run workflow
+# → download the "USGReporter-ipa" artifact when it finishes (~3 min).
+name: Build iOS IPA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['web/**', 'ios/**']
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build unsigned IPA
+        run: ./ios/build-ipa.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: USGReporter-ipa
+          path: ios/build/USGReporter-unsigned.ipa
+      # Tag a release (git tag v1.4 && git push --tags) to attach the .ipa to a GitHub Release
+      - if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ios/build/USGReporter-unsigned.ipa

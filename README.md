@@ -1,0 +1,16 @@
+# USG Reporter
+
+Structured ultrasound report builder — Abdomen & Pelvis, KUB, Pelvis, Thyroid/Neck, Carotid–Vertebral Doppler.
+Tap findings (graded fatty liver, GB calculus/polyp, renal calculi/HUN, fibroids, O-RADS ovarian lesions,
+ACR TI-RADS nodules, SRU carotid stenosis…) and the report + impression are written in house-template wording.
+Fully offline; patient data never leaves the device.
+
+| Folder | What |
+|---|---|
+| `web/` | The app (HTML/JS) — single source for every platform |
+| `android/` | Android WebView shell → APK (`./gradlew :app:assembleDebug`, copy `web/` into `app/src/main/assets/` first) |
+| `ios/` | iOS UIKit/WKWebView shell → `.ipa` (`ios/build-ipa.sh`, see `ios/README.md`) |
+| `.github/workflows/` | `build-ipa.yml` (iOS build on GitHub macOS) · `pages.yml` (web app on GitHub Pages) |
+
+Findings library: `web/data.js`. Report engine: `web/engine.js`. UI: `web/app.js`.
+Clinical decision support only — the reporting radiologist is responsible for the final report.

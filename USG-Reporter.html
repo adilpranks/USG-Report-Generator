@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>USG Reporter</title>
+<meta name="theme-color" content="#f3f5f8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="USG Reporter">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAkPklEQVR4nO19CZxU1ZX+Xd5Se6/0QjcN9ALN1uw7NM2uLIIs6rgRk3GixjiZrDPJJMZEE5eJmkXzN4mJxn/UTEzQaBJXVAQFBSFssjdNA03vXdt79bZ753ffa5oWUZGq7qpX9T7rxw/p6luv6n11zrnnnvMd6L3tXuDAwcUCXfRvOnDgEMhBvHAskIO44BDIQVxwCOQgLjgEchAXHAI5iAsOgRzEBYdADuKCQyAHccEhkIO4wMX36+kACOP4ZQooyGhkNIEwYtxRdOOiV+AQ4hDSCQGZiswlEEYoFFMAoQNz/Bfx65Qy09UlxYLhqM/ngQAQmonGKEMJhCAMhaOLaqpurp04Z1gZ+uxujJp0OdTS8dzOA/e9shVAKHI4AzkEM7AeCEIoxZT7Vi+4bf5kDiVgG7G1/uQVv15/OhgReS7TOJRxuzCMoBRTV00Y8dWFU63whVJwUQ9mgwilqm5MHVrykzULYEZGQhlHIINQkcd3r5pLKDUI4RBzXxf1gBAyVyhwWDPImgnVc0aUh2XFCswzB5lFIIygrGhTy0vLcgKUsjg6IctCyGzS5eOGAYNA4BAorUEo9Qo8j3Fil4UQZHtEkHnILAtkoY/iXJ1kVvicuQTqI0CQiXAI5CAuOARyEBccAjmIC5lIIDMFmHiQDMtBZyqBKBA4nPCAl1Lg4jPxYDGzCEQo5Xl8uLUzqmqQcSlhgBD880RLfLVFtkRmEYjZCYH74GTrxkPHEYK6kYDTK2J6xFBMWb9jPyc4h6lpDwp4Hn/pqRcV3eAxO0yN52EQdnbBY/T959/a19jsFflMi4QyywJZBsPFcyc6Qgsf+MOW+pNWSeFFPzBCkqp97U+vPvzmdp/PnRCTZi9kYj2QdaoakpRsr2vxyPJlY6ouInQhlKWe95xq+duuQ3sam30+T9/s7VIdGUogq6RVMwxZURkXLuLWW5yDEHPY5xIy0PZYyMSdpwWDEIxgwOOKpwCDmlmljGVPRhPI2pQZzO9koutJFDIuiHaQWDgEchAXHAI5iAsOgRzEBYdADuKCQyAHccEhkIO44BDIQVxwCOQgLjgEchAXMpRAF6Hn8smA5ppmv3xmIbMIBE1tF50QWdU4nLD3jhGkAIQVVdF0QmlGkSiDCMQhFInK91w+78nPryzye4JhySrqiOd2Iwg5hEKyElO1ry2Y+si1S5hgXiYdzmbKaTy7zZK8qGbYummjOYzHlFx/5983rd+xPxSVXaIgcBgAalU3XwgQhMi0ZBFFpYROLy/5xuLpy2uqMEJvHmx4/O1/ZnncGSKcmBEFZRBCzTB8PPfqV68dVpAbjCkegfeJwvvHTz/0+ra/7TncFo4CAFwCz2GMTQ/00dJmSxOIEMYzSdWobnjdYk1p4a1zJy2vqRIw7pRiHIYujpv3wB/eb2jyugQjA+QWMoJAGMGorPzPFYtumzupJSwJGDF1KUr9osBh1NAe3Hi48e+7D28+0tgekXVVAxAinuvt2ljkpOvAIIDjvCI/pqRgyajyhSPKRw0c4OK5oBwjTG0IGoT6RGH78abFDz6JORYepH2Za/oTiEMoGJXWzRz32Lrlp0NRvlfsbPkskcdegXVTNLQHD7Z0vH3khEHpy/uOqrqBIIuOEYCqrpuyVP6SHP+08tLBuYGAS5Q1XVZ1QklvoSqdkHyf544X3vrhs69nBXxp78jSnEAIQlU3irN8b33jeq/AG+Q8WyRKmVcCALp4LGBsCWWGZMWslGbPtiR8vSLv4jjNIIpuxHTdIMSKhD6yGjDpBFc/8ueNBxt86e7I0n8XpijqfavnF/o9mmGcd4MNIcSsQYdRLayoLeFoW0SyjJOppGnRC4RjanMo2inFZI11tXLIVFc8z2pMaUrk8K+uuTTP69YMkt67+nQmEEYwLMduWzhteU1VF5O//JQ3C02LYjV8ffSn7EeY8exTk5AYwnBMLc/P+cGKOllWEqIknLJA6Rw4x9TJQwbeuaLO7ITvVzvAY9QelW+YXrN8/PCuDwdeaYb0fGMsaiGA5/BP1i7EZg98//sRCIGi6w+sXTi8tDAaU63sQPohPQnEYRwJR7+2cNqsitJwLDnazQhCWdOH5mffs2ouIzRIT6QhgTiEuiLSZZNHfmvR9HYplsQQhEOoJSxdNqbqhlnjIpKcwNO31EG6vSUEoaLrRVm+H18+DyGWOE7u9XAIdcrKHcvnVBbmRRU1/XTs041AEMKYqn1veW11YW44lvwbBiHrofaJ/BOfX+nmeRaNgbQCSr8T06Vjh31h5ri2iJQiex8EYURRpwwp/s9LZkgXkE2wF9LnzSAEJVWtLs5/9LqlUUVNeMlYPMAIdUixL8+dVFs9JCTH0olD6fNOAAWE0HtWz89xu8z8L0yxtALlELp39fxst2h8TE7cjkgTAnEIhSPSF2snLBlV2cm+4il3fzCCQVmZNLj4p1ddEo2pCKbJJ58ObwNBKCnqmMED/3vJrIii4FS9NzxG7RHpyokjrpw6OhSVUyREixPp8B4IpQKHH1u3LMfjUvWU9g4Qwpiu37ViTmluIJJigVqGEojHOBqVv71k1tjSwgs5MU0ukJmeHpybdfeq+RyElFK7MyilP+5PBYdRVyRaO2Lol+dO7pRjtkj1cgi1ReRrpoy6uW5SRLL9jgzZO+ms6iW5WfevXYggc2R2+TbzGLVF5e9cOmt0WZGk2Puc1cYEggComn7nyrqJZUUs6Wyr20BYiSP34NqFOjHnRtsWdiUQh1FIjq2eNPLaKaObw/YruMEQhmR1dtWgO1fOjSSpXiAhsNnnfjYUVbXCgO+eVfOiipay+/ZPBjI59LUFUxeOLA/Zdl64/T56q8QdAvDoumVFAa+S2vv2TwA04zbNIPetXpDtYWMS7Dgy3H4EwghFpdgtdZOWjq4M2dn4AzM9HVHVmpIB3106S5JiOPFzzPocNiMQgjCqqDWDi79z6cwO+++BAQA8Qq1R+dY5Ez9XOyEYlmyRiegNO12u9fXEANy3er5PFFibDkgHQABiun7H8tqKwlzZbkVndiIQZiem8j1rFsyvHsIa0e1vfnqnpwdm+e66fB5rWLTVph7ZTV6j6sZZ4zrS5SSyBxxibUBrxldfN2NsRLbTd8MeF2qdQeZ63fesmmvNyEk/YIS65Ngvrlw0eWiJjTJD9iAQgkDX9P9eVltTUhCyW9L5AgHZBCqKIPrJmgUCxnZROkP2cF5R+drpNV+ZN7klnCqVzn3Vi60oMypKv754eiQs2SJBmuqXiCCMafqQAbl3rqhLp8D544AhCsqxr8yfUje6MlktkZ8JKA3kNdIJ0G7iHiid5DXSA9hW4h6pe3HJlddILnj7iHuk6JWlgrxGcgFtIu6RogRKBXmN5ALZRNwjFQmUOvIayQVnB3GPlLumVJPXSC64lBf3QGkvr8EkoUnSHiDdxT24lNN0Tqi8hkGYPC+PUbLq1iOKSiiNp4Gwt7jHd/78WpbPk1La01x6y2tke8Qdjc2ngxGu3zlEAVNTmFZeIkAc0/V43k6PuMdLe4+8dei43+0yUoZDXGrKa5hpQxh334zw3b+++bPX3o2xumnYrwSC5p+Uzqwo/d265UUBXzwcss5ZLXGPS3/6pGoYEPXv20l9AjHnFY7eMn/KklGV7VEpzp2XQWmWS/jHnqP3/n2T1+MO8PyFzuFJKDiENu+rv+Nvm3573VJZ1xMl7nH9o88GvG6DpoQRQmkpr0EpFTnujUMNGCIBY8Ns3uv/h06I6PO8c/REMKZycXvk1BT34FJNXsNstEAJaFo1jIllxYZhGJQZf5CsGtywNHrkUL/IhxMR1fWIe2w+dPx0OOrm2YwYkOEE4jHuCkXuWrNgbGlha4KEDTFCoZi6ctyw62aPf+LtXWwCCuz3QkbIXrFqYP7ty2YbCbrNvcU9/vX3z1viHjSTp/VwGAUjUu3wIS/cepViRgmJynOwMU2QDeB5dV/9ic4Qx+Ek7MIgWjy6ItfjklQtgVJAmkGKAt6vPvPqAy+9k/RdfTIJhCDUdCPP537uliuqi/KiqpbYI0NqBkMBl8gOAZL0PQ3FFN0cDJXYZc1BVLDu/icONLW5BT5RFs5mLqy3vMY5o+AStT6EbPNiTv5KAiD7kpx/KlScIOyLwT+4duHCB/+Q3DCIS6bzisprJ43qa3kNM5+UagcAiRT3+M76DQGPK1lj7ZKzPUkPeY3kIkXEPZJw59JGXiO5SBFxjyQQKJ3kNZKLVBD34NJGXoOaavDADoCQfQ6JFffYfbLlsbd2ZPk9ukHSlkDnyGt0Ja4JnFCKEQp4hGQnZi+w2NmQVT1RprdH3OOtgw2NnSGXOZwapCWBMDsxlR68+pL51UNaE9djSij1CHxEUV/a25hSIzLO3/alkyH52SOL84KykpCr7S3ucfWv/9LPVpizu7yGxZ59TW03PP783pOtqVPncF5AyHKbflG4fXntrXWTggnaPfWIe/xjxtjHN+/M8rj7LT3N2V1ew9zTgW/95bW9DU05Wf6UqtY7LxCCMVX/9voNMypKawYWSFpiTjl6xD32nWp9v6HJ6xL6x5EhW8trUAoEjmsKRnY2Nnv9XpUYSSnbIJ+pxsMgXoHXVP2doyc9QsKO05Ml7sH1U7FYVFo3c9xX5k1O7JEFhEAzjAK/p7Ig972jJ3L93mQlZD9bEG0YEKOakgJWppi45E1vcY8fPvt6VsCn933RWZ8TqK/lNVjZvIDvWlF33W+fa+4KJ6Fs4zPBujyMvr5o2qzKQeGYghKaBusR93jrcOPGgw2+vndkfX4ajyAMR+U/3bx2xdiqzr7RVSWU+kShsTP02v5jyAa7MKOqMK+2alBE0friJQxKvQJ/qis8897Ho6qG+nhX0bcEwgiGpNht86feu2peKKb03d1lNY0Y+1xCSpsfCxCoutGnw8I0gwzweX6zeedNj/01O8un9WVqketbeQ1F6x95DVZaZBhtEQnYAQjCPrWUlrjHuuk1OxpPP/L6tj5NT3N9OmYWQmjJa8gq6eszLwhh/IXraQMIgaLp319W+8bB40dbOvqu6KzvqnBQRI79/MpF04aWZKa8RnLB9i66nmcm3vpU3AP12b5dXjG++oYZYxN44OXgM6enJfmymqrPzRoXifaVuAfqE3kNjclr/OjyeRpL7CX8FRx8tvGaP1mzoLZ6SLhvhHISvyIETFrLkteIpIwiSf9rdNCUyTpBs/zB2zfTRRIcRPOmNtTN8ybfXDuhL+rkL7o3wysKXD+es0IIIopm9EE/xmcFNsU9Jg0u/s9LZ37nmVcDLFlPUpRAbN+uqtUlA763dBZLOqfA9CurO8wj8u/WnzIvqZ80OiilU4YO9IlCYjvCLg4YoU4p9uW6SRv2H3v9wLHEpqe5xJboGga5d/WCXI87fnmNxFyV+RW8+ckX/7Blt0b6qT8VQkAJHVUy4Hfrlo8szk86h6widADAb9ctm3737zqkGI9RoiiUOAIBpun8HwunXTKy3DyySD57DEJzPK5fbdrx2Ovb/Fk+N6vF6aeX5hDa29D0rb+89twtV8IUka9QtaKA78er5q179DnB6wYJOmdFCZTXmFFZdteKumDKZH0ooAjB1w8c40UeQ2iQ/qvZUInh9Xt3NjY3BSMCx6VCRM1hVjB01cSRayaPCoWjidqRJWYVSimP0UNXLRYw1nQDpAwopZMGD9QUDUDIIdRvDxHjqCRXFuQWpNKEBkKoahi/uGpRdUmBnKBCtsS5MIS+tX7Dvavnjy4e0CnFKGXffpBUYMg0Or4wc+wbBxte2nXIvMp+KfaA7FUKs/13rahzcTgUM1LBJOsGyXKLiq4//Ob2LpmVRSSk4zthp/Fs4yqrOR7X7ctrb5w1jgIQjilcsucQU0o5zLrTX9xzpM3MxvaPNyGUzq8eMign0Ken7hcInRAOoRyPa/ORE1975tX3jjS6mOAETohqWyLLOayZBJKsLB5Tdfflc8cNKmyPytbVg+SBfUwQBlwCK0Xqt1gEgkhMVQ0jueyxArJcj1tStf95Zct9L2/RDMPnEpliW2rWA7FtM5P8kQuzfDfOHn9r3aR8v6c9IsE+LmD4VJip4X4NZTFkAEkCBcAwiFcU3AL3zPYPHnjt3a2Hj3s9bozYZiLVC8owQpphyFF5QsWgbyyctnL8cEJIWFFxklmUKTAI29Nke1w7Gk//bMN7j7+zC0IYcIt9URXUVxWJEJoVHTHV0PSrp9d8df7UmkEFllVnMUlfvKQDwKgDIchyi+0R+cl39/zoxbc7QtGAz239yH4lrcg04yFJ9oj8ddNq7lhem+/zhGTFoVEfUcfvEjGCT27dc8cLb9W3dLjdooBxn/bK9YfEHYeQRlhwXVWYe+PsCddOHV0Q8Do0Six1Ai6RUPra/vqfbdi2YX89Qsgj8gaTNwbpoJHIxN4QkjVNU7SKorybZk+4euroooA36FijBFHn1f31D23Y9sr+ekKp3yVaWzCQZiKbEEJsHspoKqPRF2dPuKY3jZK6bbERaHe9+Vmr83OTOqzr3iWaA35oOqu0dtPItEZVRXk9Tk1SNFnTE6idk36gFBiUCBh7RJ6Qsw7LSAZ1kizz25tGzKnNmbh0dEX5gBzDIJKqE0qQs+fvBYsZIsd635pD0W3HTj385vZXPuh2WEmhTkoIjZ91arqe7XFfPm7YTXMmVhfleQQ+qmgxTWfHEBns2IiZSuYQ8osCBeBkV3j9jv2/3LjjaGsHBSC51EkJAlmwSKIbhhRTPaIwvqzoxlnjZlYOqhiQE9N0FnobrDY0c1wbpYBQAiF085xXFDql2HvHTv1x277ndx1qC0c5jnMLnCXHkewrTQ0C9d6pGYRIqkZ1ozQ/e82EEYtHDp04uDjX45Y1FiFZ0//S1SYRygAA06xhEjCGsb+5fcOBY8/uPLj5cCOg1CXwZnURM0sgNZBCBOqBRRFF15WYyvFcdWHe/BFDPz+jpqIg181zqmEwl2dOD00D/0bN417ri+HheZFn/GgOR1/Ydeip9/buPNEcisiQwz5RgBCaJXEgpZCKBOodHhmUyppmaEbA45oydOCo4gGLR5VPHFyc53VTSqOqpmiG1btikgnYizTQLBT0CLzIYUnVDzZ3vLT3yD8bm9+uP3m8IwgA8IgCj5AVCYGUROoSqAdW9MNy2YoKDIJ5bnhR3vzhg8eUFMwdPqQ0x8+ZH7Gk6prBDt0h417K5QIoC2tM5gAgYCxw2MVzhNCgHNtaf+qd+pNb2eNUWJIBgKLAqnD77gArreaFfSqs7x8CIOAWIYCE0oPNHfsamwGEJbmB6uL8WRWl40qLxg0qHOD3eMzQQTMISymZtVTWyBXLpPUbp8gZg0EIq8xEEJqWhrNo3R6R9za1/rOxeeOhxn2n2/Y3temqDjjsEfiA19PTBgnsABtYoI+zSdRsgVU03TJL+T7PlCEDC/yeumFlI4oHVBbkEEqzzQHHLB3AxAYMnZUnMwr2rMNIdeZOXTi/2G+cvb+UBb/WCt3/ATfPm3Xs0MVxUVXTDdIhyfua2t48ePxUV/i9hqaTXeFoNAYwwhi5BVbzb0XQ9mCN3QnUA8tVWWZJM4yYqpvdKjDH7ynJ9vtEoW5YWVHAN2dYmaLpg/Oy8rwegxCzX5bd55jGvF6PcJFqesALeV2RNU2y32LBFwRegbesG1vANHv7T7dzCB5u7dzV2Lyvuf2DU62ybhxt6WQejFKebaYwZ1Yln3FtdoW9CXReMlEm0WWousHOjFQNmMplmmFUF+UXZfkgAEvHVLo4TtH1cYOKBudlqTorPCWUFgW8boEdEXyqFFZTMKKao8QRkxsjGw8fV3TdzfObDzcebe2ECL137JRBiGoQPaayoZ4IYQRdPGeZOSbVY0Njk4YEMkObs//bc0964h5TIZDqTP+WaX3qhsF+yOpj2Bff7/MEXKJB2ZwbnZBpQ0sK/GyCZO9Uk7VjMuthe+443HT4eDimWnqPhFIm7mm9NmIRvLV7QuYu0izjp2Y8YyoupAtv7BREfwIMSnuXh/fUOlp3nd1dZoYYn3SDeS7BFHtgWmaIyetqOmmLdqviQQBe2H2IEgJ0AnSdkcy61xABDgGOAxgxSXNzfq8g8FYQBsxfDHjdZ16X/RuGSCdE0ZkVPLsOgghjkcO82Q5ha7eVJgSiFFgZFEvBhFIQUdSPuzFZblaqZz3TIDSiqJa9QN0dI8xa6AYhGJfmZVcV5JZk+9wCTykNykp9e/BwS0dHVPa4RJHHVodr7yjaOFPyZ7nCUExCGA/ODVTk5xQEvB6BIxSEZKWhI3iktbMjLGEOe0UhsSoZyYJdCcQmb0SlH1626AszxxkGwRiphrHgwSf3nmo9R/4dAqAR8scbLx9XWqgbhMNoX1Prop89ZT2l28pAEJTk2cMGf2nOxLnDhxT42V66B5pBjrR2rt954OE3t5/oDAfcwnkdEUYooqg8RtdNr1k3rWbS4OIsNyvs6oFOyPGO0Ev7jv76rR07Gpr8Hlca2CHbWyB2k0zDYhD6CRMUstyuLLdotoixv/f+ETIVdL63rPb2ZbOtPA3bSZnVoKxLCUEeo+qivP+6ZMbVU0bd8Njzbxxs8JvZAXCOqp8UG1dW+NMrFtVWlZ25QhZ+9azDIVSen31z7YQbptfc/vzGe1/e4nPxdqdQ8gWg4oFhBqWWkB778+OfqZvVwdYzexeZY4TCUuzf502+Y3mt9TQr98hjJHIsX4zZ+S4jgWaQwblZ629eO6a0UP5wvyk22bNoVPnr/3FtbVWZQWj3OhB+eB02y0MnxMVz96yad9fKuoisnPGhdoW9r97cbZ19XOgze/6Rbc208sLcO5bPsbwJNqURdEJ2n2zddLhxa/3J5lAUm6lkHiOrvfyBtQt75xGxOYNx4uDiZ/5tdbbHZW7imEHiWA24vutky6bDje8eO9UalqzNPIasvVon5NuXzFg5vjpitqkD28LGLix+IAhVRVs2pirARLvM3TsA63ceuOP5jUfaglFV5TDKdbtumDn2zsvmsKyPeeg2b/jgqRWlbx9u9LoEQqhBqYvDv7p2id9cxGqelFTtvpe3PL1tX2NnKKpqAsYDfJ6VY4f9YEVtrocdA7N8FaXfX1b78t6jhmnzbOrKbMz9xADC0QMHsJQjm48Ej7UHb/j9C7tOtQLI5m+4OC6kqHc/+8YvN77P9u0sacBudF1VGdENBCAbICwr100bM6GsyPRZLDvQGpEW/+yp76/fcKS1EwDgFwWBw+1R+aFXtlz20J+CssKcrZnCGltasGhUeTSm2rfX0iEQC3fMu9d9C60yIwzNYlpW24U5j+uJrXussayWA6wYkM1yAICVuLtF/t9mT2BGhT2dJYpufvLFTR/U52b7zdRzd5kYh2FuTmDzB/X3vbKFwwibBU/1bV0l2X7zHtiVQBntwhgIPWraCWsY5ZC8rEeuWfLd59442NIJiAExFnnOLfCHWjom3PUoMEXyIABhRXWzImUqK/rkIcU1pQWMPebB+8ZDjet37A8EfMqHhbYoBaqhu7zu32/ZLSnawZaOY+1dLWEpoqhu0/cBeyKjCUQBxTz3j71Hb19ea5oWpgN8xcQRS8ZUvnmg4dUDx949dupgc0dbOAoM0hmWeIGJ1ZmmCApM+ggSnRGIJSG7GQD/uusg0c+VY+7ZsgkcbI/KD7yyBWLEYcRjdqRq62xQRhOIEOoV+W3HTj6y8f1b5kxUDYPdTgJ8Ar90TOXSMZUAgBOd4e3Hm175oH7DgWMfNLULHPKJgpUUoKbhGlGUb62GIfNFu0+2AHPi5NlXYUWVes//Mrdo5rgpZfNQIIQix2rHbIqMJlD30GdR/OZfXivO8l0+briVW7L4Ac3deGmOvzTHv2LssHBMfX73oR//Y/OeU60Bt2gOv6EAwkK/11rKsjItYal3REwpdfPcsILcj7sA1SCNHUH7mqBMJxCl7MTeMOi//ObZL9VN/FLdxPL8nJ6Q1mKSdWrmdwlXTx61dHTl5x5//tkdB/wel7X1dglnP0Nrpi7sneNWtbGlhW9/c915Xtp8mUMtnVPu/q1VUmJHGtl7F3Zxn3h3ZfKHdRR5Dt3/8papdz/2L48++8TWPQea2yllFohnkQorQDPPJVgi8akvrJwydGBPMlphVf3dQBAK5uHuOS9nJaZ7HtYTrAM1u9d32NsC9a7lYDHwxzztnB9ZRTndg0jMzbe50wY+txhRtKff3fP0u3uyve7KgtzJZcXTK0rrhpUNygmwD8sMll0894PL5iz5+dNsDUpbwtEzyzIvVpzlff/42S0VNY/J0njglb0J1HurzJI3ZsHGecdl9D660g1imNKf5lGGrhtE5LGL4wQOxzRdYL6Jrfz+8dPbjp745Zvbc33u66fV3LVijps3y4AomF05qKowr6Gddd4caG63liWUpaFHDyz4286DVl0HNafPtEWkP7y7p+fVCWUlkbkel70tTzoQCIKwolh/sZTYmfv4sEewrAtvttH0/GPMLPVyu7mIrCypqbpx1vgst5jnded4XFf8Zv3bh094TWV7r8AjM9mj6MaDL2wsyfZ9feE0y+Z5BL48P/tgczvH4/camlg6gG3fmOFZMrrivpe3WFs0SqnI4WPtXdf+an331ZjFrNtvvym3zGXJxwKbw66m1SrjaQ1LvYeJZLtdkGWEez0PsmmPboHrXZrTJccoYadROiE+UVg2pnJ25aCRxfnFWb5LRpYTTWN1qFZEbJ6fCxhzbte+pjZrRauWzCvwlFCPwP+zsfmDpnbLHRJKZ1UOWjyqPBSRLcpaLizL78nye7L93rxsP+9mighpA7sSyNpCN3aErWYai0BLRlcSVbcOvS23xWMcU7VBOYGigM88bWB3tLEjZMaulOe4LfUnrcMpnWkn0y/MHFtWkNsZkXrPLVB0Q9e05TVV1utaxxnBmAIsIVE59sTW3VYi2zrh/8VViyuL8jpDUUtptKd0WlK19q5wWU5ggI8VrKUHi+xKIEIBz+P9zW0RRbX6MSiln585dtmkEZ2d4VBMiapaVNU6w5KI8R3LazGC1gkmBOD946et3Y+L5461dW0+coKFQ+ayRQHf/964akxJYVCOBSNSMCwFpRiG4EdrF1w+bviZAy/QIcn7T7cLHKcbxC2Kv9m0s6Ej2B0pU1qen/3aV69dNWmkYdCQJAfD0WBEiirqwCzft5bO3vT160tz/Fb8bqUTbc0ku8ZAlFIXzx9p6Xhx79E1E6qtWlU3z/3li2seGfn+3/ccaQlHeYyHFeZ+cfb4GeWlZ+INGJSVlz+oFwTBoASZm/Ofv/7ektEVVqxNKJ06dODW/7phw/5jB5rbdUIK/d7ZVYPK83PMFVjdNI/R+h0HG9u6Al436zLjcFtEuu3pl5+7ZW1PPX9ZTuDPX1y9+2TL1mOn2sKSS+BHFOVNHTIw24zQrYvRCNMaEzisM39qV9i4rcfq1KksyH37m+uy3aLOanHO375sOThCWL7n28++8eO/b8ryuq3TK4RgWFJ+ec2lN9VO0Izu4fYf7au3ylJ1U8C7KRiZfu/jp9kcJ9xThhaKyrfOn/zzKxdb6ceP68+3fgTMoNtMW0dvevIfL+w6zPrk7ZkQsjGBugtS5diCEeVP/evKPC+T07bCXrM9i908q0uQZ9UT7PkPv7n9K398WTSPoqwVLD9iGOT/XbNk3fQx3UMCzEV6YhornLK41dgZuurX67fUn/S5xN5H6BjBUDS2ZtLI+9cusJJGVn97TysYWwSx+iGLU6puPL1t3w//tulwS4ffzbQygT1hbwJ13zlZGVGc/70ls5fXVHlF1pT+UexsbL7/ta3/f+sej8CfU/5n6e7EVOP66WO+XDdpQlnReVdoDUvP7Nh/z0vvHO8ImsWH595ydiWSUpIbuLl2wlWTRlYMyDnvOkdaO1/Yc/iJLbu3H2viOewWmJozsC1sTyDrzkkq6zodWTxg4uDi6sK8Ar/HxXMGa9FS6tu6djY2v9dwKiIpfg/Lvnz0y26FRxEp5nWLE8qKxg8qrBiQm23u/KOKdrIrvLepdfvx043tXQLPu8zWsI+5EmTpYuUGvOMHFY0pKagYkB1wiZTSTil2uLVz96nWPSdbOsJRxHE+kbVk2Nf2pA+BzuhsAEYjTT93MioLRphsO2f2RXzCIlbjRFTVgHGmnbR7BdafKvKcaEYqn3x6BS01I8OQVa27k/XDV+IWOMGs97A7dey9CzsHVnmOm+eg6aF6w+ofZNXvn+YprOJ2vykm95FFWH/7hfgaSlmZPTan45yjGHOmzZ7lnEC6IE0I1ItGcX2tu5vq47YNtFtcLB1sTHomEh2kCBwCOYgLDoEcxAWHQA7igkMgB3HBIZCDuOAQyEFccAjkIC44BHIQFxwCOYgLDoEcxAWHQA5APPg/Xl3LyBHopWAAAAAASUVORK5CYII=">
+<style>
+:root{--bg:#f3f5f8;--card:#fff;--ink:#1b2430;--mut:#6b7684;--line:#dfe4ea;--pri:#0b6e8a;--pri2:#e3f2f6;--ab:#b4471f;--ab2:#fdeee6;--nm:#2c7a4b;--nm2:#e6f4ec}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,Roboto,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer}
+.view{max-width:760px;margin:0 auto;padding:0 max(12px,env(safe-area-inset-right)) 24px max(12px,env(safe-area-inset-left))}
+html{-webkit-text-size-adjust:100%}
+.bar{padding-top:max(10px,env(safe-area-inset-top))!important}.home-hd{padding-top:max(22px,calc(env(safe-area-inset-top) + 8px))!important}
+.actions{padding-bottom:max(12px,env(safe-area-inset-bottom))!important}
+.filel{display:inline-block;cursor:pointer;text-align:center}
+@media print{
+  @page{size:A4;margin:14mm 16mm}
+  body{background:#fff!important}
+  #home,#builder,#modal,#toast,.bar,.actions,.fab{display:none!important}
+  #preview{display:block!important;max-width:none;padding:0!important}
+  .paper{border:0!important;box-shadow:none!important;padding:0!important;overflow:visible!important}
+  #rep.editing{outline:0}
+}
+.muted{color:var(--mut)}.small{font-size:12px}.pad{padding:8px 4px}
+/* home */
+.home-hd{display:flex;align-items:center;justify-content:space-between;padding:22px 4px 14px}
+.app-t{font-size:24px;font-weight:700;color:var(--pri)}.app-s{color:var(--mut);font-size:13px}
+.icon{border:0;background:var(--card);width:42px;height:42px;border-radius:12px;font-size:22px;box-shadow:0 1px 2px #0001;color:var(--ink)}
+.h-lab{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:18px 4px 8px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-weight:600;text-align:left;color:var(--ink)}
+.tcard .ti{font-size:26px;color:var(--pri)}
+.resume{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--pri2);border:1px solid #b9dde7;color:var(--pri);border-radius:12px;padding:12px 14px;text-align:left}
+.hist{display:flex;flex-direction:column;gap:6px}
+.hrow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.hmain{flex:1;display:flex;flex-direction:column;min-width:0}.hmain span{color:var(--mut);font-size:12px}
+.sm{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 10px;color:var(--ink)}.sm.ghost{border:0;color:var(--mut)}
+/* bars */
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;background:var(--bg);padding:10px 0}
+.bt{flex:1;font-weight:700;font-size:17px}
+.pri{background:var(--pri);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:600}
+.ghostb{background:transparent;border:1px solid var(--line);border-radius:10px;padding:9px 14px;color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+/* fields */
+.grid2,.meas,.ifs{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:flex-end}
+.fld{display:flex;flex-direction:column;gap:3px;flex:1 1 140px;min-width:120px}
+.fld.wide{flex-basis:100%}
+.fld>span:first-child{font-size:12px;color:var(--mut)}
+input,select,textarea{font-size:16px!important;font-family:inherit;line-height:inherit;color:var(--ink);background:#fbfcfd;border:1px solid var(--line);border-radius:9px;padding:9px 10px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid #0b6e8a55;border-color:var(--pri)}
+.inw{display:flex;align-items:center;gap:6px}.inw .u{color:var(--mut);font-size:13px;white-space:nowrap}
+.dims input{text-align:center}.dims i{color:var(--mut);font-style:normal}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{flex:1;border:0;background:#fbfcfd;padding:9px;color:var(--ink)}.seg button.on{background:var(--pri);color:#fff}
+/* sections */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.sec header{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;user-select:none}
+.sn{flex:1;font-weight:600}.car{color:var(--mut)}
+.badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px}
+.badge.nm{background:var(--nm2);color:var(--nm)}.badge.ab{background:var(--ab2);color:var(--ab)}
+.sb{padding:0 14px 14px;border-top:1px solid var(--line)}
+.meas{padding-top:12px}
+.add-l{font-size:12px;color:var(--mut);margin:14px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:#fbfcfd;border-radius:20px;padding:7px 12px;font-size:13.5px;color:var(--ink)}
+.chip.sel{background:var(--ab2);border-color:#f0c4ad;color:var(--ab)}
+.chip.tog.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.item{border:1px solid #f0c4ad;background:#fffaf7;border-radius:12px;padding:10px}
+.ih{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}.ih b{color:var(--ab)}
+.ct{border:0;background:transparent;color:var(--ab);font-size:14px;padding:0 2px}.ih b{cursor:pointer}
+.dup{margin-left:auto;border:1px solid #f0c4ad;background:#fff;color:var(--ab);border-radius:8px;font-size:15px;padding:2px 8px}
+.dup+.x{margin-left:0}
+.item.col .ih{margin-bottom:0}.isum{font-size:12.5px;color:var(--mut);margin-top:4px}
+.another{border:1.5px dashed #e0a585;background:#fffaf7;color:var(--ab);border-radius:12px;padding:10px;font-weight:600}
+.x{margin-left:auto;border:0;background:transparent;color:var(--mut);font-size:16px;padding:2px 6px}
+.tr{font-size:12px;font-weight:600;padding:3px 8px;border-radius:8px}
+.tr1,.tr2{background:var(--nm2);color:var(--nm)}.tr3{background:#fff6d8;color:#8a6500}.tr4{background:#ffe7d4;color:#a14a00}.tr5{background:#fbe0e0;color:#a31c1c}
+.note{margin-top:12px}
+.prev{margin-top:12px;background:#f7f9fb;border:1px dashed var(--line);border-radius:10px;padding:10px;font-size:13.5px}
+.prev .pl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-bottom:4px}
+.pi{margin-top:6px;color:var(--ab);font-weight:600}
+.vtab{flex-basis:100%}.vtab table{width:100%;border-collapse:collapse}.vtab th{font-size:12px;color:var(--mut);font-weight:600;padding:2px}
+.vtab td{padding:2px}.vtab td:first-child{font-weight:600;font-size:13px;padding-right:6px}.vtab input{padding:7px 4px;text-align:center}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom));background:var(--pri);color:#fff;border:0;border-radius:28px;padding:14px 26px;font-weight:700;box-shadow:0 6px 18px #0b6e8a55;z-index:6}
+.bottom-pad{height:80px}
+/* preview */
+.paper{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px 16px;box-shadow:0 2px 8px #0001;overflow-x:auto}
+#rep.editing{outline:2px dashed var(--pri);outline-offset:6px}
+.actions{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:var(--bg);padding:12px 0}
+.actions button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:12px 4px;font-weight:600;color:var(--ink)}
+.actions .pri{background:var(--pri);color:#fff;border-color:var(--pri)}
+/* modal */
+#modal{position:fixed;inset:0;background:#0006;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+#modal[hidden]{display:none}
+.mbox{background:var(--card);width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:18px 18px 0 0;padding:16px;display:flex;flex-wrap:wrap;gap:10px}
+.mh{font-weight:700;font-size:18px;flex-basis:100%}.mmsg{flex-basis:100%;font-size:16px;padding:4px 2px 8px}.pri.danger{background:#b4471f}.addm{white-space:nowrap;padding:9px 12px}
+#modal{align-items:center}.mbox{border-radius:18px;margin:12px}.mact{flex-basis:100%;display:flex;justify-content:flex-end;gap:8px}
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:9px 16px;border-radius:20px;opacity:0;transition:.2s;pointer-events:none;z-index:30}
+#toast.on{opacity:.92}
+</style>
+<style id="repcss"></style>
+</head>
+<body>
+<div id="home" class="view"></div>
+<div id="builder" class="view" hidden></div>
+<div id="preview" class="view" hidden></div>
+<div id="modal" hidden></div>
+<div id="toast"></div>
+<script>
+const REPORT_CSS = `
+.rep{font:13.5px/1.5 "Times New Roman",Georgia,serif;color:#000}
+.rep .inst{text-align:center;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:10px}
+.rep .inst-name{font-size:19px;font-weight:700;letter-spacing:.02em}.rep .inst-addr{font-size:12px}
+.rep .pt{width:100%;border-collapse:collapse;border-top:1px solid #000;border-bottom:1px solid #000;margin-bottom:12px}
+.rep .pt td{padding:3px 4px;vertical-align:top}
+.rep .ttl{text-align:center;font-weight:700;text-decoration:underline;font-size:15px;margin:8px 0 2px}
+.rep .mach{text-align:center;font-style:italic;font-size:12.5px;margin-bottom:10px}
+.rep .ind{margin-bottom:8px}
+.rep .fx{width:100%;border-collapse:collapse}
+.rep .fx td{padding:4px 2px;vertical-align:top}
+.rep .fx .lab{font-weight:700;white-space:nowrap;width:1%;padding-right:4px}
+.rep .fx .col{width:1%;padding:4px 8px 4px 2px;font-weight:700}
+.rep .fx .nar{padding-top:6px}
+.rep .vt{border-collapse:collapse;margin:6px auto;min-width:70%}
+.rep .vt th,.rep .vt td{border:1px solid #000;padding:3px 10px;text-align:center}
+.rep .vt small{font-weight:400}
+.rep .imp-h{font-weight:700;text-decoration:underline;margin-top:14px}
+.rep .imp{margin:4px 0 0;padding-left:20px}.rep .imp li{font-weight:700;margin:2px 0}
+.rep .sig{margin-top:36px;text-align:right}.rep .sig-name{font-weight:700}
+.rep .foot{margin-top:18px;font-size:11.5px;font-style:italic;text-align:center}
+`;
+document.getElementById('repcss').textContent = REPORT_CSS;
+</script>
+<script>
+/* USG Reporter — findings library.
+ * Section  = {id, name (UI), lab (report label or null for narrative lines), sex:'F'|'M',
+ *             meas:[fields], cl:[clauses], fd:[findings], auto(m,ctx)->[{x,t,i}], impN(ctx)}
+ * Clause   = {k, t:(m,ctx)=>string}         — the house-style "normal" sentence(s)
+ * Finding  = {id, l, rep (repeatable), x:[clause keys it replaces], fs:[fields],
+ *             t:(v,m,ctx)=>report text, i:(v,m,ctx)=>impression (string | array | null)}
+ * Field    = {k, l, t:'sel'|'num'|'txt'|'chk'|'multi'|'dims'|'vtab', o:[options], u:unit, d:default}
+ */
+'use strict';
+
+/* ---------- helpers ---------- */
+const has = x => x !== undefined && x !== null && String(x).trim() !== '';
+const opt = (val, pre = '', post = '') => has(val) ? pre + val + post : '';
+const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+const dims = d => Array.isArray(d) ? d.filter(has).join(' x ') : (has(d) ? String(d) : '');
+const nums = d => Array.isArray(d) ? d.filter(has).map(Number) : [];
+const vol = d => { const n = nums(d); return n.length === 3 ? +(0.523 * n[0] * n[1] * n[2]).toFixed(1) : null; };
+const maxDim = d => { const n = nums(d); return n.length ? Math.max(...n) : null; };
+const list = a => { a = (a || []).filter(Boolean); return a.length < 2 ? (a[0] || '') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; };
+const lc = s => s ? s.toLowerCase() : s;
+const S = { R: 'Right', L: 'Left', B: 'Bilateral' };
+const sideAdj = s => ({ Right: 'right', Left: 'left', Bilateral: 'bilateral' }[s] || lc(s || ''));
+
+const F = (k, l, t, o, extra) => Object.assign({ k, l, t }, t === 'num' || t === 'dims' ? { u: o } : { o }, extra || {});
+const SIDE = F('side', 'Side', 'sel', ['Right', 'Left', 'Bilateral']);
+const SIDE2 = F('side', 'Side', 'sel', ['Right', 'Left']);
+const NUM1 = F('n', 'Number', 'sel', ['Single', 'Multiple']);
+
+/* ======================================================================
+ *  ABDOMEN
+ * ==================================================================== */
+const LIVER = {
+  id: 'liver', name: 'Liver', lab: 'LIVER',
+  meas: [F('span', 'Span', 'num', 'cm')],
+  cl: [
+    { k: 'span', t: m => opt(m.span, 'Span of ', ' cm.') },
+    { k: 'sz', t: () => 'Normal in size, shape and echotexture.' },
+    { k: 'focal', t: () => 'No evident focal lesion noted.' },
+    { k: 'ihbr', t: () => "IHBR's are not dilated." },
+  ],
+  fd: [
+    { id: 'hepatomegaly', l: 'Hepatomegaly', x: ['span', 'sz'], fs: [],
+      t: (v, m, c) => 'Enlarged in size' + opt(m.span, ' (span ', ' cm)') + (c.has('fatty') || c.has('cld') ? '.' : ' with normal shape and echotexture.'),
+      i: (v, m, c) => c.has('fatty') ? null : 'Hepatomegaly.' },
+    { id: 'fatty', l: 'Fatty liver (grade)', x: ['sz'], fs: [F('g', 'Grade', 'sel', ['I', 'II', 'III']), F('spare', 'Focal fat sparing near GB fossa', 'chk')],
+      t: (v, m, c) => {
+        const d = { I: 'mildly increased echogenicity with normal visualisation of the diaphragm and intrahepatic vessel walls',
+          II: 'moderately increased echogenicity with slightly impaired visualisation of the intrahepatic vessel walls and diaphragm',
+          III: 'markedly increased echogenicity with poor visualisation of the intrahepatic vessel walls, diaphragm and posterior segment of right lobe' }[v.g || 'I'];
+        return (c.has('hepatomegaly') ? 'Shows ' : 'Normal in size and shows ') + d + '.' + (v.spare ? ' Focal fat sparing is seen adjacent to the gall bladder fossa.' : '');
+      },
+      i: (v, m, c) => (c.has('hepatomegaly') ? 'Hepatomegaly with grade ' : 'Grade ') + (v.g || 'I') + ' fatty liver.' },
+    { id: 'cld', l: 'Chronic liver disease / cirrhosis', x: ['sz'],
+      fs: [F('size', 'Size', 'sel', ['Normal', 'Shrunken', 'Enlarged']),
+           F('feat', 'Features', 'multi', ['coarse heterogeneous echotexture', 'nodular surface', 'blunted margins', 'caudate lobe hypertrophy', 'widened fissures'])],
+      t: v => cap((v.size && v.size !== 'Normal' ? lc(v.size) + ' in size' : 'normal in size') + (v.feat && v.feat.length ? ' with ' + list(v.feat) : ' with coarse echotexture') + '.'),
+      i: v => 'Features suggestive of chronic liver parenchymal disease' + (v.feat && v.feat.includes('nodular surface') ? ' / cirrhosis' : '') + '.' },
+    { id: 'hepatitis', l: 'Acute hepatitis pattern', x: ['sz'], fs: [F('feat', 'Features', 'multi', ['hepatomegaly', 'diffusely reduced echogenicity', 'prominent periportal echogenicity (starry-sky)', 'periportal oedema', 'GB wall oedema'])],
+      t: v => 'Shows ' + list(v.feat && v.feat.length ? v.feat : ['diffusely reduced echogenicity', 'prominent periportal echogenicity']) + '.',
+      i: () => 'Sonographic features may represent acute hepatitis – correlate with LFT.' },
+    { id: 'congestion', l: 'Hepatic congestion', fs: [F('ivc', 'IVC diameter', 'num', 'mm')],
+      t: v => 'Hepatic veins and IVC' + opt(v.ivc, ' (IVC ', ' mm)') + ' are dilated with reduced respiratory variation.',
+      i: () => 'Features suggestive of congestive hepatopathy.' },
+    { id: 'lesion', l: 'Focal lesion', rep: true, x: ['focal'],
+      fs: [F('type', 'Type', 'sel', ['Simple cyst', 'Haemangioma', 'Abscess', 'Hydatid cyst', 'Solid lesion (indeterminate)', 'Multiple lesions (?metastases)', 'Calcified granuloma']),
+           F('seg', 'Segment', 'sel', ['', 'I', 'II', 'III', 'IVa', 'IVb', 'V', 'VI', 'VII', 'VIII', 'right lobe', 'left lobe', 'both lobes']),
+           F('sz', 'Size', 'dims', 'cm'),
+           F('echo', 'Echo (solid lesion)', 'sel', ['hypoechoic', 'hyperechoic', 'isoechoic', 'heterogeneous', 'target / bull\'s-eye']),
+           F('vasc', 'Vascularity', 'sel', ['', 'no internal vascularity', 'internal vascularity', 'peripheral vascularity'])],
+      t: v => {
+        const at = opt(v.seg, v.seg && /lobe/.test(v.seg) ? ' in the ' : ' in segment ');
+        const sz = opt(dims(v.sz), ' measuring ', ' cm');
+        const vs = opt(v.vasc, ' with ');
+        const vo = vol(v.sz);
+        switch (v.type) {
+          case 'Haemangioma': return 'A well-defined homogeneously hyperechoic lesion' + sz + vs + at + ' – likely haemangioma.';
+          case 'Abscess': return 'An ill-defined hypoechoic lesion with internal echoes / debris' + sz + (vo ? ' (volume ~' + vo + ' cc)' : '') + at + ' – likely liver abscess.';
+          case 'Hydatid cyst': return 'A cystic lesion with internal septations / daughter cysts' + sz + at + ' – likely hydatid cyst.';
+          case 'Solid lesion (indeterminate)': return 'A ' + (v.echo || 'hypoechoic') + ' solid lesion' + sz + vs + at + '.';
+          case 'Multiple lesions (?metastases)': return 'Multiple ' + (v.echo || 'hypoechoic') + ' lesions are noted' + (v.seg ? ' in ' + (/lobe/.test(v.seg) ? 'the ' : 'segment ') + v.seg : ' in both lobes') + opt(dims(v.sz), ', largest measuring ', ' cm') + '.';
+          case 'Calcified granuloma': return 'A tiny calcific focus with posterior acoustic shadowing' + at + ' – calcified granuloma.';
+          default: return 'A well-defined anechoic cyst with imperceptible wall and posterior acoustic enhancement' + sz + at + '.';
+        }
+      },
+      i: v => {
+        const at = v.seg ? (/lobe/.test(v.seg) ? ' in ' + v.seg : ' in segment ' + v.seg) : '';
+        return {
+          'Simple cyst': 'Simple hepatic cyst' + at + '.',
+          'Haemangioma': 'Hepatic lesion' + at + ' – likely haemangioma.',
+          'Abscess': 'Liver abscess' + at + '.',
+          'Hydatid cyst': 'Hepatic cystic lesion' + at + ' – likely hydatid cyst.',
+          'Solid lesion (indeterminate)': 'Solid hepatic lesion' + at + ' – further evaluation with triple-phase CT / MRI recommended.',
+          'Multiple lesions (?metastases)': 'Multiple hepatic lesions – likely metastases; suggested CECT correlation.',
+          'Calcified granuloma': 'Calcified hepatic granuloma.',
+        }[v.type || 'Simple cyst'];
+      } },
+    { id: 'ihbrd', l: 'IHBR dilatation', x: ['ihbr'], fs: [F('deg', 'Degree', 'sel', ['Mild', 'Moderate', 'Gross']), F('lobe', 'Lobe', 'sel', ['both lobes', 'right lobe', 'left lobe'])],
+      t: v => lc(v.deg || 'Mild').replace(/^./, c => c.toUpperCase()) + ' dilatation of IHBR\'s is noted in ' + (v.lobe || 'both lobes') + '.',
+      i: v => cap(lc(v.deg || 'mild')) + ' intrahepatic biliary radicle dilatation.' },
+  ],
+};
+
+const PORTA = {
+  id: 'porta', name: 'Porta hepatis / CBD', lab: 'PORTA HEPATIS',
+  meas: [F('pv', 'Portal vein', 'num', 'mm'), F('cbd', 'CBD', 'num', 'mm')],
+  cl: [
+    { k: 'pv', t: m => 'Portal vein not dilated' + opt(m.pv, ' (', ' mm)') + '.' },
+    { k: 'cbd', t: m => 'CBD not dilated' + opt(m.cbd, ' (', ' mm)') + '.' },
+  ],
+  fd: [
+    { id: 'pht', l: 'Portal hypertension', x: ['pv'], fs: [F('feat', 'Features', 'multi', ['dilated portal vein', 'reduced portal venous velocity', 'hepatofugal flow', 'porto-systemic collaterals', 'recanalised paraumbilical vein', 'splenomegaly', 'ascites'])],
+      t: (v, m) => 'Portal vein' + opt(m.pv, ' measures ', ' mm') + (v.feat && v.feat.length ? '. Noted ' + list(v.feat.filter(x => x !== 'dilated portal vein')) : '') + '.',
+      i: () => 'Features of portal hypertension.' },
+    { id: 'pvt', l: 'Portal vein thrombosis', x: ['pv'], fs: [F('ext', 'Extent', 'sel', ['Partial', 'Complete']), F('kind', 'Nature', 'sel', ['bland', 'with internal vascularity (?tumour thrombus)']), F('seg', 'Segment', 'sel', ['main portal vein', 'right portal vein', 'left portal vein', 'main and branches'])],
+      t: v => 'Echogenic thrombus ' + (v.kind && v.kind !== 'bland' ? v.kind + ' ' : '') + 'is noted in the ' + (v.seg || 'main portal vein') + ' causing ' + lc(v.ext || 'Partial') + ' occlusion' + (v.ext === 'Complete' ? ' with no flow on colour Doppler' : '') + '.',
+      i: v => cap(lc(v.ext || 'Partial')) + ' portal vein thrombosis' + (v.kind && v.kind !== 'bland' ? ' – ?tumour thrombus' : '') + '.' },
+    { id: 'cbddil', l: 'CBD dilated', x: ['cbd'], fs: [F('cause', 'Cause', 'sel', ['No obvious cause seen', 'Distal CBD obscured by bowel gas', 'Post-cholecystectomy'])],
+      t: (v, m) => 'CBD is dilated' + opt(m.cbd, ' (', ' mm)') + '. ' + (v.cause || 'No obvious cause seen') + '.',
+      i: (v, m) => 'Dilated CBD' + opt(m.cbd, ' (', ' mm)') + (v.cause === 'Post-cholecystectomy' ? ' – may be post-cholecystectomy; correlate with LFT.' : ' – MRCP correlation suggested.') },
+    { id: 'cbdstone', l: 'CBD calculus (choledocholithiasis)', x: ['cbd'], fs: [F('sz', 'Calculus size', 'num', 'mm'), F('loc', 'Location', 'sel', ['distal', 'mid', 'proximal'])],
+      t: (v, m) => 'CBD is dilated' + opt(m.cbd, ' (', ' mm)') + ' with an echogenic calculus' + opt(v.sz, ' measuring ', ' mm') + ' showing posterior acoustic shadowing in its ' + (v.loc || 'distal') + ' part.',
+      i: () => 'Choledocholithiasis with dilated CBD.' },
+    { id: 'pneumobilia', l: 'Pneumobilia', fs: [], t: () => 'Echogenic foci with dirty shadowing / reverberation are seen along the biliary tree – pneumobilia.', i: () => 'Pneumobilia.' },
+  ],
+};
+
+const GB = {
+  id: 'gb', name: 'Gall bladder', lab: 'GALL BLADDER',
+  meas: [],
+  cl: [
+    { k: 'dist', t: () => 'Distended.' },
+    { k: 'calc', t: () => 'No evident calculus noted.' },
+    { k: 'wall', t: () => 'GB wall has normal thickness.' },
+    { k: 'peri', t: () => 'No pericholecystic fluid noted.' },
+  ],
+  fd: [
+    { id: 'postchole', l: 'Post-cholecystectomy', x: ['dist', 'calc', 'wall', 'peri'], fs: [], t: () => 'Not visualised – post-cholecystectomy status.', i: () => 'Post-cholecystectomy status.' },
+    { id: 'contracted', l: 'Contracted / partially distended', x: ['dist', 'wall'], fs: [F('why', 'Reason', 'sel', ['post-prandial state', 'unknown'])],
+      t: v => 'Contracted / partially distended' + (v.why === 'post-prandial state' ? ' (post-prandial state) – limited evaluation.' : ' – limited evaluation.'), i: () => null },
+    { id: 'calculus', l: 'Calculus (cholelithiasis)', x: ['calc'],
+      fs: [NUM1, F('sz', 'Size (largest)', 'num', 'mm'), F('mob', 'Mobility', 'sel', ['mobile', 'non-mobile']), F('neck', 'Impacted at GB neck', 'chk'), F('wes', 'GB filled with calculi (WES sign)', 'chk')],
+      t: v => v.wes ? 'GB lumen is filled with calculi showing wall-echo-shadow (WES) complex.' :
+        (v.n === 'Multiple' ? 'Multiple ' + (v.mob || 'mobile') + ' calculi' + opt(v.sz, ', largest measuring ', ' mm,') : 'A ' + (v.mob || 'mobile') + ' calculus' + opt(v.sz, ' measuring ', ' mm')) +
+        ' with posterior acoustic shadowing ' + (v.n === 'Multiple' ? 'are' : 'is') + ' noted in the GB lumen' + (v.neck ? ', with one impacted at the GB neck' : '') + '.',
+      i: (v, m, c) => c.has('acute') ? null : 'Cholelithiasis' + (v.neck ? ' with calculus impacted at GB neck' : '') + '.' },
+    { id: 'sludge', l: 'Sludge', fs: [F('ball', 'Tumefactive sludge ball', 'chk')],
+      t: v => v.ball ? 'Non-shadowing mobile echogenic sludge ball is seen in the dependent part of GB.' : 'Echogenic sludge is noted in the dependent part of GB lumen.',
+      i: () => 'GB sludge.' },
+    { id: 'polyp', l: 'Polyp', rep: true,
+      fs: [F('sz', 'Size', 'num', 'mm'), NUM1, F('risk', 'Morphology (SRU 2022)', 'sel', ['Pedunculated ball-on-the-wall / thin stalk (extremely low risk)', 'Sessile / thick stalk / focal wall thickening ≥4 mm (low risk)'])],
+      t: v => (v.n === 'Multiple' ? 'Multiple non-shadowing, non-mobile echogenic polyps are noted arising from the GB wall' + opt(v.sz, ', largest measuring ', ' mm') : 'A non-shadowing, non-mobile echogenic polyp' + opt(v.sz, ' measuring ', ' mm') + ' is noted arising from the GB wall') +
+        (v.risk && v.risk.startsWith('Sessile') ? ' (sessile / broad-based).' : '.'),
+      i: v => {
+        const s = +v.sz, low = v.risk && v.risk.startsWith('Sessile');
+        let r = '';
+        if (has(v.sz)) {
+          if (s >= 15) r = 'surgical consultation recommended';
+          else if (s >= 10) r = low ? 'US follow-up at 6, 12 and 24 months or surgical consultation' : 'US follow-up at 6, 12 and 24 months';
+          else if (low && s >= 7) r = 'US follow-up at 12 months';
+          else r = 'no follow-up required';
+        }
+        return 'GB polyp' + (v.n === 'Multiple' ? 's' : '') + opt(v.sz, ' (', ' mm)') + (r ? ' – ' + r + ' (SRU 2022 consensus).' : '.');
+      } },
+    { id: 'acute', l: 'Acute cholecystitis', x: ['dist', 'wall', 'peri'],
+      fs: [F('wt', 'Wall thickness', 'num', 'mm'), F('feat', 'Features', 'multi', ['sonographic Murphy\'s sign positive', 'pericholecystic fluid', 'wall striation / oedema', 'calculus impacted at neck', 'intraluminal membranes (?gangrenous)', 'wall hyperaemia'])],
+      t: v => 'Distended with diffusely thickened' + opt(v.wt, ' (', ' mm)') + ' oedematous wall' + (v.feat && v.feat.length ? ', ' + list(v.feat) : '') + '.',
+      i: (v, m, c) => 'Features suggestive of acute ' + (c.has('calculus') ? 'calculous ' : 'acalculous ') + 'cholecystitis' + (v.feat && v.feat.some(f => f.includes('gangren')) ? ' – ?gangrenous' : '') + '.' },
+    { id: 'chronic', l: 'Chronic cholecystitis', x: ['dist', 'wall'], fs: [F('wt', 'Wall thickness', 'num', 'mm')],
+      t: v => 'Contracted with thickened wall' + opt(v.wt, ' (', ' mm)') + '.', i: (v, m, c) => c.has('calculus') ? 'Chronic calculous cholecystitis.' : 'Features suggestive of chronic cholecystitis.' },
+    { id: 'wallthick', l: 'Diffuse wall thickening (non-specific)', x: ['wall'], fs: [F('wt', 'Wall thickness', 'num', 'mm')],
+      t: v => 'GB wall is diffusely thickened' + opt(v.wt, ' (', ' mm)') + '.', i: () => 'Diffuse GB wall thickening – non-specific (hepatitis / hypoproteinaemia / ascites / cardiac causes to be correlated).' },
+    { id: 'adeno', l: 'Adenomyomatosis', x: ['wall'], fs: [F('type', 'Type', 'sel', ['fundal', 'segmental', 'diffuse'])],
+      t: v => (cap(v.type || 'fundal')) + ' GB wall thickening with echogenic intramural foci showing comet-tail artefacts.', i: v => cap(v.type || 'fundal') + ' adenomyomatosis of GB.' },
+    { id: 'gbmass', l: 'GB mass (?carcinoma)', x: ['wall'], fs: [F('sz', 'Size', 'dims', 'cm'), F('inf', 'Infiltrating adjacent liver', 'chk')],
+      t: v => 'An irregular heterogeneous soft-tissue mass' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted arising from the GB wall' + (v.inf ? ', infiltrating the adjacent liver parenchyma' : '') + '.',
+      i: () => 'GB mass – suspicious for carcinoma gall bladder; CECT recommended.' },
+    { id: 'porcelain', l: 'Porcelain GB', x: ['wall'], fs: [], t: () => 'GB wall shows curvilinear calcification with posterior acoustic shadowing.', i: () => 'Porcelain gall bladder.' },
+  ],
+};
+
+const PANCREAS = {
+  id: 'pancreas', name: 'Pancreas', lab: 'PANCREAS',
+  meas: [],
+  cl: [{ k: 'n', t: () => 'Visualized head and body appears normal in size and echotexture.' }],
+  fd: [
+    { id: 'obscured', l: 'Obscured by bowel gas', x: ['n'], fs: [], t: () => 'Obscured by bowel gas – not well visualised.', i: () => null },
+    { id: 'acutepanc', l: 'Acute pancreatitis', x: ['n'], fs: [F('feat', 'Features', 'multi', ['bulky', 'hypoechoic', 'heterogeneous', 'peripancreatic fluid', 'peripancreatic fat stranding'])],
+      t: v => 'Pancreas appears ' + list((v.feat && v.feat.length ? v.feat : ['bulky', 'hypoechoic']).filter(x => !x.startsWith('peri'))) + ((v.feat || []).filter(x => x.startsWith('peri')).length ? ' with ' + list(v.feat.filter(x => x.startsWith('peri'))) : '') + '.',
+      i: () => 'Sonographic features suggestive of acute pancreatitis – correlate with serum amylase / lipase.' },
+    { id: 'chronicpanc', l: 'Chronic pancreatitis', x: ['n'], fs: [F('mpd', 'MPD diameter', 'num', 'mm'), F('feat', 'Features', 'multi', ['atrophic', 'parenchymal calcifications', 'intraductal calculi', 'irregular dilated MPD'])],
+      t: v => 'Pancreas shows ' + list(v.feat && v.feat.length ? v.feat : ['parenchymal calcifications']) + opt(v.mpd, '; MPD measures ', ' mm') + '.',
+      i: () => 'Features suggestive of chronic calcific pancreatitis.' },
+    { id: 'pseudocyst', l: 'Pseudocyst / collection', rep: true, fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Location', 'sel', ['lesser sac', 'head region', 'body region', 'tail region', 'peripancreatic'])],
+      t: v => 'A well-defined cystic collection' + opt(dims(v.sz), ' measuring ', ' cm') + (vol(v.sz) ? ' (volume ~' + vol(v.sz) + ' cc)' : '') + ' is noted in the ' + (v.loc || 'lesser sac') + '.',
+      i: () => 'Pancreatic / peripancreatic collection – ?pseudocyst.' },
+    { id: 'pancmass', l: 'Pancreatic mass', fs: [F('loc', 'Location', 'sel', ['head', 'uncinate process', 'neck', 'body', 'tail']), F('sz', 'Size', 'dims', 'cm'), F('duct', 'Double-duct sign (CBD + MPD dilated)', 'chk')],
+      t: v => 'An ill-defined hypoechoic mass' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the pancreatic ' + (v.loc || 'head') + (v.duct ? ', with dilatation of both CBD and MPD' : '') + '.',
+      i: v => 'Pancreatic ' + (v.loc || 'head') + ' mass – CECT pancreas protocol recommended.' },
+  ],
+};
+
+const SPLEEN = {
+  id: 'spleen', name: 'Spleen', lab: 'SPLEEN',
+  meas: [F('len', 'Length', 'num', 'cm')],
+  cl: [
+    { k: 'sz', t: m => 'Normal in size' + opt(m.len, ' (', ' cm)') + ', shape and echotexture.' },
+    { k: 'focal', t: () => 'No evident focal lesion.' },
+  ],
+  fd: [
+    { id: 'splenomegaly', l: 'Splenomegaly', x: ['sz'], fs: [F('g', 'Grade (auto from length if blank)', 'sel', ['', 'Mild', 'Moderate', 'Massive'])],
+      t: (v, m) => 'Enlarged in size' + opt(m.len, ' (', ' cm)') + ' with normal echotexture.',
+      i: (v, m) => { const g = v.g || (has(m.len) ? (+m.len > 20 ? 'Massive' : +m.len > 15 ? 'Moderate' : 'Mild') : 'Mild'); return g + ' splenomegaly' + opt(m.len, ' (', ' cm)') + '.'; } },
+    { id: 'spllesion', l: 'Focal lesion', rep: true, x: ['focal'],
+      fs: [F('type', 'Type', 'sel', ['Simple cyst', 'Calcified granulomas', 'Infarct', 'Abscess', 'Haemangioma', 'Solid lesion (indeterminate)']), F('sz', 'Size', 'dims', 'cm')],
+      t: v => ({
+        'Simple cyst': 'A well-defined anechoic cyst' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted.',
+        'Calcified granulomas': 'Multiple tiny echogenic calcific foci are seen – calcified granulomas.',
+        'Infarct': 'A peripheral wedge-shaped hypoechoic area' + opt(dims(v.sz), ' measuring ', ' cm') + ' with no internal vascularity is noted – likely infarct.',
+        'Abscess': 'A hypoechoic lesion with internal echoes' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted – likely abscess.',
+        'Haemangioma': 'A well-defined hyperechoic lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted – likely haemangioma.',
+        'Solid lesion (indeterminate)': 'A solid lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted.',
+      })[v.type || 'Simple cyst'],
+      i: v => ({ 'Simple cyst': 'Splenic cyst.', 'Calcified granulomas': 'Splenic calcified granulomas.', 'Infarct': 'Splenic infarct.', 'Abscess': 'Splenic abscess.', 'Haemangioma': 'Splenic lesion – likely haemangioma.', 'Solid lesion (indeterminate)': 'Solid splenic lesion – further evaluation with CECT recommended.' })[v.type || 'Simple cyst'] },
+    { id: 'splenule', l: 'Splenunculus', fs: [F('sz', 'Size', 'num', 'cm')], t: v => 'A small splenunculus' + opt(v.sz, ' measuring ', ' cm') + ' is noted near the splenic hilum.', i: () => null },
+    { id: 'splenectomy', l: 'Post-splenectomy', x: ['sz', 'focal'], fs: [], t: () => 'Not visualised – post-splenectomy status.', i: () => 'Post-splenectomy status.' },
+  ],
+};
+
+/* ---------- KIDNEY (factory per side) ---------- */
+const kidneySide = (sd) => {
+  const side = S[sd], sl = lc(side);
+  const K = w => ({ key: w, side: sd });
+  return {
+    id: 'kid' + sd, name: side + ' kidney', lab: side.toUpperCase() + ' KIDNEY', side: sd,
+    meas: [F('len', 'Length', 'num', 'cm'), F('wid', 'Width', 'num', 'cm'), F('ct', 'Cortical thickness', 'num', 'mm')],
+    cl: [
+      { k: 'len', t: m => has(m.len) ? 'Measures ' + m.len + (has(m.wid) ? ' x ' + m.wid : '') + ' cm' + opt(m.ct, ' (cortical thickness ', ' mm)') + '.' : '' },
+      { k: 'sz', t: () => 'Normal in size, shape and echotexture.' },
+      { k: 'cmd', t: () => 'Corticomedullary differentiation is preserved.' },
+      { k: 'hn', t: () => 'No evidence of hydroureteronephrosis or calculi seen.' },
+    ],
+    fd: [
+      { id: 'calc', l: 'Renal calculus', rep: true, x: ['hn'],
+        fs: [NUM1, F('sz', 'Size (largest)', 'num', 'mm'), F('loc', 'Location', 'sel', ['lower pole calyx', 'mid pole calyx', 'upper pole calyx', 'renal pelvis', 'PUJ', 'staghorn (pelvis + calyces)'])],
+        t: (v, m, c) => (v.n === 'Multiple' ? 'Multiple calculi' + opt(v.sz, ', largest measuring ', ' mm,') + ' are' : 'A calculus' + opt(v.sz, ' measuring ', ' mm') + ' is') + ' noted in the ' + (v.loc || 'lower pole calyx') + '.' +
+          (c.first('calc') && !c.hasAny(['hn', 'ureteric', 'pyo']) ? ' No hydroureteronephrosis.' : ''),
+        i: v => side + ' renal calculus' + (v.n === 'Multiple' ? 'i' : '') + opt(v.sz, ' (', ' mm' + (v.loc ? ', ' + v.loc : '') + ')') + '.' },
+      { id: 'ureteric', l: 'Ureteric calculus', rep: true, x: ['hn'],
+        fs: [F('sz', 'Size', 'num', 'mm'), F('loc', 'Location', 'sel', ['VUJ', 'distal ureter', 'mid ureter', 'proximal ureter', 'PUJ']), F('hn', 'Causing', 'sel', ['mild hydroureteronephrosis', 'moderate hydroureteronephrosis', 'severe hydroureteronephrosis', 'mild hydronephrosis', 'no hydronephrosis'])],
+        t: v => 'A calculus' + opt(v.sz, ' measuring ', ' mm') + ' is noted at the ' + sl + ' ' + (v.loc || 'VUJ') + ' causing ' + (v.hn || 'mild hydroureteronephrosis') + '.',
+        i: v => side + ' ' + (v.loc || 'VUJ') + ' calculus' + opt(v.sz, ' (', ' mm)') + (v.hn && v.hn.startsWith('no') ? '.' : ' causing ' + (v.hn || 'mild hydroureteronephrosis') + '.') },
+      { id: 'hn', l: 'Hydronephrosis / HUN', x: ['hn'],
+        fs: [F('g', 'Grade', 'sel', ['Mild', 'Moderate', 'Severe']), F('ureter', 'With hydroureter', 'chk'), F('cause', 'Cause / level (optional)', 'txt')],
+        t: (v, m, c) => {
+          const d = { Mild: 'dilatation of the renal pelvis with mild calyceal dilatation', Moderate: 'dilatation of the pelvicalyceal system with blunting of calyces and preserved cortical thickness', Severe: 'marked dilatation of the pelvicalyceal system with cortical thinning' }[v.g || 'Mild'];
+          return cap(d) + (v.ureter ? ', with dilated ureter' : '') + opt(v.cause, ' – ') + '.' + (c.has('calc') || c.has('ureteric') ? '' : ' No calculus seen.');
+        },
+        i: (v, m, c) => c.has('ureteric') ? null : side + ' ' + lc(v.g || 'Mild') + (v.ureter ? ' hydroureteronephrosis' : ' hydronephrosis') + opt(v.cause, ' – ') + '.' },
+      { id: 'pyo', l: 'Pyonephrosis', x: ['hn'], fs: [], t: () => 'Dilated pelvicalyceal system with internal echoes / debris and fluid-debris level.', i: () => side + ' pyonephrosis – urgent urological opinion.' },
+      { id: 'rpd', l: 'Renal parenchymal disease (grade)', x: ['sz', 'cmd'], fs: [F('g', 'Grade', 'sel', ['I', 'II', 'III'])],
+        t: (v, m) => ({ I: 'Normal in size. Cortical echogenicity is increased (equal to liver) with preserved corticomedullary differentiation.',
+          II: 'Normal in size. Cortical echogenicity is increased (more than liver) with preserved corticomedullary differentiation.',
+          III: 'Cortical echogenicity is markedly increased (more than liver) with loss of corticomedullary differentiation.' })[v.g || 'I'],
+        i: v => ({ key: 'rpd' + (v.g || 'I'), side: sd, f: w => 'Grade ' + (v.g || 'I') + ' renal parenchymal disease – ' + w + '; correlate with RFT.' }) },
+      { id: 'contracted', l: 'Small contracted kidney', x: ['sz', 'cmd'], fs: [],
+        t: (v, m) => 'Small in size' + opt(m.len, ' (', ' cm)') + ' with increased cortical echogenicity, cortical thinning and poor corticomedullary differentiation.',
+        i: () => ({ key: 'contracted', side: sd, f: w => 'Small contracted ' + (w === 'both kidneys' ? 'kidneys' : w) + ' – chronic kidney disease.' }) },
+      { id: 'cyst', l: 'Simple cortical cyst', rep: true, fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Location', 'sel', ['upper pole', 'mid pole', 'lower pole']), F('type', 'Type', 'sel', ['cortical', 'exophytic', 'parapelvic'])],
+        t: v => 'A well-defined anechoic ' + (v.type || 'cortical') + ' cyst with imperceptible wall' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + (v.loc || 'mid pole') + '.',
+        i: () => side + ' renal simple cyst (Bosniak I).' },
+      { id: 'cplxcyst', l: 'Complex cyst', fs: [F('sz', 'Size', 'dims', 'cm'), F('feat', 'Features', 'multi', ['thin septations', 'thick / irregular septations', 'calcification', 'internal echoes', 'solid enhancing-looking component', 'internal vascularity'])],
+        t: v => 'A complex cystic lesion' + opt(dims(v.sz), ' measuring ', ' cm') + (v.feat && v.feat.length ? ' with ' + list(v.feat) : '') + ' is noted.',
+        i: () => side + ' complex renal cyst – CECT / CEMRI recommended for Bosniak categorisation.' },
+      { id: 'aml', l: 'Angiomyolipoma', fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Location', 'sel', ['upper pole', 'mid pole', 'lower pole'])],
+        t: v => 'A well-defined homogeneously hyperechoic lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + (v.loc || 'mid pole') + ' – likely angiomyolipoma.',
+        i: () => side + ' renal hyperechoic lesion – likely angiomyolipoma (CT confirmation of fat advised).' },
+      { id: 'mass', l: 'Solid renal mass', fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Location', 'sel', ['upper pole', 'mid pole', 'lower pole']), F('vasc', 'Internal vascularity', 'chk'), F('rv', 'Renal vein / IVC thrombus', 'chk')],
+        t: v => 'A heterogeneous solid mass' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + (v.loc || 'mid pole') + (v.vasc ? ' showing internal vascularity' : '') + '.' + (v.rv ? ' Thrombus is noted in the renal vein / IVC.' : ''),
+        i: () => side + ' solid renal mass – suspicious for RCC; CECT recommended.' },
+      { id: 'pyelo', l: 'Acute pyelonephritis', x: ['sz'], fs: [F('feat', 'Features', 'multi', ['bulky', 'altered echogenicity', 'focal hypoechoic areas', 'reduced perfusion on colour Doppler', 'urothelial thickening', 'perinephric fluid'])],
+        t: v => 'Kidney appears ' + list(v.feat && v.feat.length ? v.feat : ['bulky', 'altered echogenicity']) + '.', i: () => side + ' acute pyelonephritis – correlate clinically and with urine analysis.' },
+      { id: 'nephrocalc', l: 'Medullary nephrocalcinosis', x: ['cmd'], fs: [], t: () => 'Echogenic medullary pyramids are noted.', i: () => ({ key: 'nephrocalc', side: sd, f: w => 'Medullary nephrocalcinosis – ' + w + '.' }) },
+      { id: 'ectopic', l: 'Ectopic kidney', x: ['sz'], fs: [F('loc', 'Location', 'sel', ['pelvic', 'lumbar', 'crossed fused'])], t: v => 'Kidney is not seen in the renal fossa; noted in ' + (v.loc || 'pelvic') + ' location.', i: v => side + ' ' + (v.loc || 'pelvic') + ' ectopic kidney.' },
+      { id: 'duplex', l: 'Duplex collecting system', fs: [], t: () => 'Duplex collecting system with separate upper and lower moieties.', i: () => side + ' duplex kidney.' },
+      { id: 'extrarenal', l: 'Extrarenal pelvis (variant)', fs: [], t: () => 'Extrarenal pelvis is noted – normal variant.', i: () => null },
+      { id: 'hyper', l: 'Compensatory hypertrophy', x: ['sz'], fs: [], t: (v, m) => 'Enlarged in size' + opt(m.len, ' (', ' cm)') + ' with normal echotexture – compensatory hypertrophy.', i: () => null },
+      { id: 'absent', l: 'Not visualised / nephrectomy', x: ['len', 'sz', 'cmd', 'hn'], fs: [F('why', 'Reason', 'sel', ['post-nephrectomy status', 'not visualised in renal fossa or ectopic location (?agenesis)'])],
+        t: v => 'Not visualised – ' + (v.why || 'post-nephrectomy status') + '.', i: v => side + ' kidney not visualised – ' + (v.why || 'post-nephrectomy status') + '.' },
+    ],
+  };
+};
+
+const BLADDER = {
+  id: 'ub', name: 'Urinary bladder', lab: 'Ur. BLADDER',
+  meas: [F('pre', 'Prevoid volume', 'num', 'cc'), F('pvr', 'Post-void residual', 'num', 'cc'), F('wt', 'Wall thickness', 'num', 'mm')],
+  cl: [
+    { k: 'dist', t: () => 'Distended.' },
+    { k: 'calc', t: () => 'No evident calculus.' },
+    { k: 'wall', t: m => 'UB wall has normal thickness' + opt(m.wt, ' (', ' mm)') + '.' },
+    { k: 'vol', t: m => (has(m.pre) ? 'Prevoid volume – ' + m.pre + ' cc. ' : '') + (has(m.pvr) ? 'PVRV – ' + m.pvr + ' cc.' : '') },
+  ],
+  auto: m => has(m.pvr) && +m.pvr > 100 ? [{ i: 'Significant post-void residual urine (' + m.pvr + ' cc).' }] : [],
+  fd: [
+    { id: 'partial', l: 'Partially distended / collapsed', x: ['dist', 'wall'], fs: [], t: () => 'Partially distended – wall and lumen not optimally assessed.', i: () => null },
+    { id: 'ubcalc', l: 'Vesical calculus', x: ['calc'], fs: [NUM1, F('sz', 'Size (largest)', 'num', 'mm')],
+      t: v => (v.n === 'Multiple' ? 'Multiple mobile calculi' + opt(v.sz, ', largest measuring ', ' mm,') + ' are' : 'A mobile calculus' + opt(v.sz, ' measuring ', ' mm') + ' is') + ' noted in the bladder lumen with posterior acoustic shadowing.',
+      i: () => 'Vesical calculus.' },
+    { id: 'trab', l: 'Wall thickening / trabeculation', x: ['wall'], fs: [F('feat', 'Features', 'multi', ['diffuse wall thickening', 'trabeculation', 'sacculations', 'diverticula'])],
+      t: (v, m) => 'UB shows ' + list(v.feat && v.feat.length ? v.feat : ['diffuse wall thickening', 'trabeculation']) + opt(m.wt, ' (wall thickness ', ' mm)') + '.',
+      i: () => 'Thick-walled trabeculated urinary bladder – ?chronic bladder outlet obstruction.' },
+    { id: 'cystitis', l: 'Cystitis', x: ['wall'], fs: [], t: (v, m) => 'UB wall is diffusely thickened' + opt(m.wt, ' (', ' mm)') + ' with internal echoes in the lumen.', i: () => 'Features suggestive of cystitis – correlate with urine analysis.' },
+    { id: 'debris', l: 'Internal echoes / debris', fs: [], t: () => 'Internal echoes / debris are noted in the bladder lumen.', i: () => 'Internal echoes in urinary bladder – correlate with urine analysis.' },
+    { id: 'ubmass', l: 'Mass / polypoidal lesion', rep: true, x: ['wall'], fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Wall', 'sel', ['right lateral', 'left lateral', 'posterior', 'anterior', 'dome', 'trigone', 'base']), F('vasc', 'Internal vascularity', 'chk')],
+      t: v => 'A polypoidal soft-tissue lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted arising from the ' + (v.loc || 'right lateral') + ' wall' + (v.vasc ? ' showing internal vascularity' : '') + '.',
+      i: () => 'Urinary bladder mass – cystoscopic evaluation recommended.' },
+    { id: 'divert', l: 'Diverticulum', fs: [F('sz', 'Size', 'dims', 'cm'), F('loc', 'Location', 'sel', ['right lateral', 'left lateral', 'posterior'])],
+      t: v => 'A diverticulum' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted arising from the ' + (v.loc || 'right lateral') + ' wall.', i: () => 'Urinary bladder diverticulum.' },
+    { id: 'ureterocele', l: 'Ureterocele', fs: [SIDE2], t: v => 'A thin-walled cystic outpouching is seen at the ' + lc(v.side || 'Right') + ' VUJ – ureterocele.', i: v => (v.side || 'Right') + ' ureterocele.' },
+    { id: 'foley', l: 'Foley catheter in situ', x: ['dist'], fs: [], t: () => 'Collapsed with Foley catheter bulb in situ.', i: () => null },
+  ],
+};
+
+const PROSTATE_GRADES = [[25, null], [40, 'I'], [60, 'II'], [80, 'III'], [Infinity, 'IV']]; // ≤25 cc normal
+const PROSTATE = {
+  id: 'prostate', name: 'Prostate', lab: 'PROSTATE', sex: 'M',
+  meas: [F('d', 'Dimensions (cm)', 'dims', 'cm'), F('v', 'Volume (auto if blank)', 'num', 'cc')],
+  cl: [{ k: 'vol', t: m => { const v = has(m.v) ? m.v : vol(m.d); return 'Has an approx. volume of ' + (v != null ? v : '__') + ' cc' + (v != null && v > 25 ? '' : '') + '.'; } }],
+  auto: m => {
+    const v = has(m.v) ? +m.v : vol(m.d);
+    if (v == null || v <= 25) return [];
+    const g = PROSTATE_GRADES.find(r => v <= r[0])[1];
+    return [{ x: ['vol'], t: 'Enlarged in size with an approx. volume of ' + v + ' cc.', i: 'Grade ' + g + ' prostatomegaly (~' + v + ' cc).' }];
+  },
+  fd: [
+    { id: 'ml', l: 'Median lobe protrusion', fs: [F('ipp', 'Intravesical protrusion', 'num', 'mm')], t: v => 'Median lobe is seen protruding into the bladder base' + opt(v.ipp, ' (IPP ', ' mm)') + '.', i: () => 'Median lobe protrusion.' },
+    { id: 'pcalc', l: 'Prostatic calcifications', fs: [], t: () => 'Few parenchymal calcifications are noted.', i: () => null },
+    { id: 'prostatitis', l: 'Prostatitis pattern', fs: [], t: () => 'Heterogeneous echotexture with increased vascularity.', i: () => 'Features may represent prostatitis – correlate clinically.' },
+    { id: 'pzlesion', l: 'Hypoechoic peripheral-zone lesion', fs: [F('sz', 'Size', 'dims', 'cm'), SIDE2], t: v => 'An ill-defined hypoechoic area' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + lc(v.side || 'Right') + ' peripheral zone.', i: () => 'Hypoechoic peripheral zone lesion – correlate with PSA; mpMRI prostate advised.' },
+    { id: 'turp', l: 'Post-TURP defect', fs: [], t: () => 'Post-TURP defect is noted.', i: () => 'Post-TURP status.' },
+  ],
+};
+
+const UTERUS = {
+  id: 'uterus', name: 'Uterus', lab: 'UTERUS', sex: 'F',
+  meas: [F('d', 'Dimensions', 'dims', 'cm'), F('et', 'Endometrial thickness', 'num', 'mm'), F('pos', 'Position', 'sel', ['', 'anteverted', 'retroverted', 'anteverted anteflexed', 'retroverted retroflexed'])],
+  cl: [
+    { k: 'sz', t: m => (m.pos ? cap(m.pos) + '. ' : '') + 'Measures ' + (dims(m.d) || '__') + ' cm and appears normal in echotexture.' },
+    { k: 'focal', t: () => 'No focal myometrial lesions.' },
+    { k: 'et', t: m => 'Endometrial thickness is ' + (has(m.et) ? m.et : '__') + ' mm.' },
+  ],
+  auto: (m, c) => c.meno === 'Post-menopausal' && has(m.et) && +m.et > 4 && !c.has('thickET')
+    ? [{ i: 'Endometrial thickness of ' + m.et + ' mm – thickened for post-menopausal status (>4 mm); endometrial sampling recommended.' }] : [],
+  fd: [
+    { id: 'bulky', l: 'Bulky uterus', x: ['sz'], fs: [], t: (v, m) => 'Bulky in size' + opt(dims(m.d), ' (', ' cm)') + ' with normal echotexture.', i: (v, m, c) => c.has('adeno') ? null : 'Bulky uterus.' },
+    { id: 'fibroid', l: 'Fibroid', rep: true, x: ['focal'],
+      fs: [NUM1, F('type', 'Type', 'sel', ['intramural', 'subserosal', 'pedunculated subserosal', 'submucosal', 'intramural with submucosal component', 'intramural with subserosal component', 'cervical', 'broad ligament']),
+           F('wall', 'Wall', 'sel', ['anterior', 'posterior', 'fundal', 'right lateral', 'left lateral']), F('sz', 'Size (largest)', 'dims', 'cm'),
+           F('figo', 'FIGO type', 'sel', ['', '0', '1', '2', '3', '4', '5', '6', '7', '2-5', '8']), F('echo', 'Echo', 'sel', ['hypoechoic', 'heterogeneous', 'calcified', 'cystic degeneration'])],
+      t: v => (v.n === 'Multiple' ? 'Multiple well-defined ' + (v.echo || 'hypoechoic') + ' lesions are noted in the myometrium' + opt(dims(v.sz), ', largest measuring ', ' cm') + ' (' + (v.type || 'intramural') + ', ' + (v.wall || 'anterior') + ' wall)' :
+        'A well-defined ' + (v.echo || 'hypoechoic') + ' lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + (v.wall || 'anterior') + ' wall (' + (v.type || 'intramural') + ')') + opt(v.figo, ', FIGO type ') + ' – fibroid.',
+      i: v => (v.n === 'Multiple' ? 'Multiple uterine fibroids' : cap(v.type || 'intramural') + ' uterine fibroid') + opt(dims(v.sz), ' (', ' cm)') + opt(v.figo, ', FIGO type ') + '.' },
+    { id: 'adeno', l: 'Adenomyosis', x: ['sz'],
+      fs: [F('type', 'Type', 'sel', ['diffuse', 'focal (adenomyoma)']), F('feat', 'Features', 'multi', ['globular bulky uterus', 'asymmetric myometrial thickening', 'heterogeneous myometrium', 'myometrial cysts', 'fan-shaped / venetian-blind shadowing', 'ill-defined junctional zone', 'question-mark sign', 'translesional vascularity'])],
+      t: (v, m) => 'Measures ' + (dims(m.d) || '__') + ' cm and shows ' + list(v.feat && v.feat.length ? v.feat : ['globular bulky uterus', 'heterogeneous myometrium', 'fan-shaped shadowing']) + '.',
+      i: v => 'Features suggestive of ' + (v.type && v.type.startsWith('focal') ? 'focal adenomyosis (adenomyoma)' : 'diffuse adenomyosis') + '.' },
+    { id: 'thickET', l: 'Thickened endometrium', x: ['et'], fs: [],
+      t: (v, m, c) => 'Endometrium is thickened, measuring ' + (has(m.et) ? m.et : '__') + ' mm.',
+      i: (v, m, c) => 'Thickened endometrium' + opt(m.et, ' (', ' mm)') + (c.meno === 'Post-menopausal' ? ' in a post-menopausal patient – endometrial sampling recommended.' : ' – correlate with phase of menstrual cycle / follow-up post menses.') },
+    { id: 'polyp', l: 'Endometrial polyp', fs: [F('sz', 'Size', 'dims', 'cm'), F('fv', 'Feeding vessel', 'chk')], t: v => 'A well-defined echogenic lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted within the endometrial cavity' + (v.fv ? ' with a single feeding vessel' : '') + '.', i: () => 'Endometrial polyp.' },
+    { id: 'collection', l: 'Endometrial collection', fs: [F('type', 'Type', 'sel', ['fluid (hydrometra)', 'haematometra', 'pyometra'])], t: v => 'Fluid collection with ' + (v.type === 'fluid (hydrometra)' ? 'clear fluid' : 'internal echoes') + ' is noted in the endometrial cavity.', i: v => cap(v.type || 'fluid (hydrometra)').replace('Fluid (hydrometra)', 'Hydrometra') + '.' },
+    { id: 'iucd', l: 'IUCD', fs: [F('pos', 'Position', 'sel', ['in situ in endometrial cavity', 'low-lying (in lower uterine segment / cervix)', 'displaced / rotated', 'embedded in myometrium'])],
+      t: v => 'IUCD is seen ' + (v.pos || 'in situ in endometrial cavity') + '.', i: v => (v.pos || 'in situ').startsWith('in situ') ? 'IUCD in situ.' : 'Malpositioned IUCD (' + v.pos + ').' },
+    { id: 'rpoc', l: 'Retained products', fs: [F('sz', 'Size', 'dims', 'cm'), F('vasc', 'Internal vascularity', 'chk')], t: v => 'Heterogeneous echogenic material' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the endometrial cavity' + (v.vasc ? ' showing internal vascularity' : '') + '.', i: () => 'Retained products of conception.' },
+    { id: 'mullerian', l: 'Congenital anomaly', fs: [F('type', 'Type', 'sel', ['arcuate', 'septate', 'bicornuate', 'didelphys', 'unicornuate'])], t: v => 'Features suggestive of ' + (v.type || 'septate') + ' uterus.', i: v => cap(v.type || 'septate') + ' uterus – 3D US / MRI for confirmation.' },
+    { id: 'nabothian', l: 'Nabothian cysts', fs: [], t: () => 'Few Nabothian cysts are noted in the cervix.', i: () => null },
+    { id: 'atrophic', l: 'Atrophic (post-menopausal)', x: ['sz'], fs: [], t: (v, m) => 'Atrophic' + opt(dims(m.d), ', measuring ', ' cm') + '.', i: () => null },
+    { id: 'hyst', l: 'Post-hysterectomy', x: ['sz', 'focal', 'et'], fs: [], t: () => 'Not visualised – post-hysterectomy status. Vault appears normal.', i: () => 'Post-hysterectomy status.' },
+  ],
+};
+
+/* O-RADS US v2022 (lexicon category only) */
+const ORADS_TXT = { 1: 'O-RADS 1 – normal ovary', 2: 'O-RADS 2 – almost certainly benign (<1%)', 3: 'O-RADS 3 – low risk (1–<10%)', 4: 'O-RADS 4 – intermediate risk (10–<50%)', 5: 'O-RADS 5 – high risk (≥50%)' };
+const OVARIES = {
+  id: 'ovaries', name: 'Ovaries / adnexa', lab: 'OVARIES', sex: 'F',
+  meas: [F('rd', 'Right ovary', 'dims', 'cm'), F('ld', 'Left ovary', 'dims', 'cm')],
+  cl: [
+    { k: 'dims', t: m => 'Right ovary – ' + (dims(m.rd) || '__') + ' cm' + (vol(m.rd) ? ' (vol ' + vol(m.rd) + ' cc)' : '') + '. Left ovary – ' + (dims(m.ld) || '__') + ' cm' + (vol(m.ld) ? ' (vol ' + vol(m.ld) + ' cc)' : '') + '.' },
+    { k: 'norm', t: (m, c) => { const s = c.sides(); return !s.R && !s.L ? 'Both ovaries appear normal sono-graphically.' : !s.R ? 'Right ovary appears normal sono-graphically.' : !s.L ? 'Left ovary appears normal sono-graphically.' : ''; } },
+    { k: 'adn', t: () => 'No evident adnexal lesion is seen on both sides.' },
+  ],
+  fd: [
+    { id: 'pcom', l: 'Polycystic ovarian morphology', fs: [SIDE, F('fn', 'Follicle count / ovary', 'sel', ['', '≥20', '12–19', '>25'])], d: { side: 'Bilateral' },
+      t: v => (v.side === 'Bilateral' || !v.side ? 'Both ovaries show' : cap(v.side) + ' ovary shows') + ' multiple small peripherally arranged follicles' + opt(v.fn, ' (', ' per ovary)') + ' with central echogenic stroma.',
+      i: v => (v.side && v.side !== 'Bilateral' ? v.side + ' ' : 'Bilateral ') + 'polycystic ovarian morphology – correlate clinically and hormonally.' },
+    { id: 'simple', l: 'Simple / follicular cyst', rep: true, x: [], fs: [SIDE2, F('sz', 'Size', 'dims', 'cm')],
+      t: v => 'A thin-walled unilocular anechoic cyst' + opt(dims(v.sz), ' measuring ', ' cm') + ' with no internal vascularity is noted in the ' + lc(v.side || 'Right') + ' ovary.',
+      i: (v, m, c) => { const d = maxDim(v.sz); const o = d == null ? '' : d >= 10 ? 3 : (d <= 3 && c.meno !== 'Post-menopausal') ? 1 : 2;
+        return (v.side || 'Right') + ' ovarian simple cyst' + opt(dims(v.sz), ' (', ' cm)') + (o ? ' – ' + (o === 1 ? 'likely follicle, ' : '') + ORADS_TXT[o] : '') + '.'; } },
+    { id: 'hemorrhagic', l: 'Haemorrhagic cyst', rep: true, fs: [SIDE2, F('sz', 'Size', 'dims', 'cm')],
+      t: v => 'A cyst with reticular / lace-like internal echoes and retracting clot' + opt(dims(v.sz), ' measuring ', ' cm') + ', with no internal vascularity, is noted in the ' + lc(v.side || 'Right') + ' ovary.',
+      i: (v, m, c) => (v.side || 'Right') + ' ovarian haemorrhagic cyst' + opt(dims(v.sz), ' (', ' cm)') + ' – ' + ORADS_TXT[maxDim(v.sz) >= 10 ? 3 : 2] + (c.meno === 'Post-menopausal' ? '; follow-up advised.' : '; follow-up after 8–12 weeks advised.') },
+    { id: 'endometrioma', l: 'Endometrioma', rep: true, fs: [SIDE2, F('sz', 'Size', 'dims', 'cm')],
+      t: v => 'A cyst with homogeneous low-level (ground-glass) internal echoes' + opt(dims(v.sz), ' measuring ', ' cm') + ', with no internal vascularity, is noted in the ' + lc(v.side || 'Right') + ' ovary.',
+      i: v => (v.side || 'Right') + ' ovarian endometrioma' + opt(dims(v.sz), ' (', ' cm)') + ' – ' + ORADS_TXT[maxDim(v.sz) >= 10 ? 3 : 2] + '.' },
+    { id: 'dermoid', l: 'Dermoid', rep: true, fs: [SIDE2, F('sz', 'Size', 'dims', 'cm'), F('feat', 'Features', 'multi', ['hyperechoic component with acoustic shadowing', 'dermoid mesh (hyperechoic lines and dots)', 'floating echogenic spheres', 'fat-fluid level'])],
+      t: v => 'A cystic lesion with ' + list(v.feat && v.feat.length ? v.feat : ['hyperechoic component with acoustic shadowing', 'dermoid mesh (hyperechoic lines and dots)']) + opt(dims(v.sz), ', measuring ', ' cm') + ', is noted in the ' + lc(v.side || 'Right') + ' ovary.',
+      i: v => (v.side || 'Right') + ' ovarian dermoid' + opt(dims(v.sz), ' (', ' cm)') + ' – ' + ORADS_TXT[maxDim(v.sz) >= 10 ? 3 : 2] + '.' },
+    { id: 'complex', l: 'Complex / solid adnexal mass', rep: true, x: ['adn'],
+      fs: [SIDE2, F('sz', 'Size', 'dims', 'cm'), F('feat', 'Features', 'multi', ['multilocular', 'smooth septations', 'irregular septations', 'solid component', 'papillary projections', 'irregular outer contour', 'predominantly solid']),
+           F('cs', 'Colour score', 'sel', ['', '1 (no flow)', '2 (minimal)', '3 (moderate)', '4 (very strong)']), F('asc', 'Ascites / peritoneal nodules', 'chk'), F('orads', 'O-RADS category', 'sel', ['3', '4', '5'])],
+      t: v => 'A ' + (v.feat && v.feat.includes('predominantly solid') ? 'predominantly solid' : 'complex cystic') + ' adnexal lesion' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + lc(v.side || 'Right') + ' adnexa' + (v.feat && v.feat.length ? ' with ' + list(v.feat.filter(f => f !== 'predominantly solid')) : '') + opt(v.cs, '; colour score ') + '.' + (v.asc ? ' Associated ascites / peritoneal nodularity is noted.' : ''),
+      i: v => { const o = +(v.orads || 4); return (v.side || 'Right') + ' complex adnexal lesion' + opt(dims(v.sz), ' (', ' cm)') + ' – ' + ORADS_TXT[o] + (o === 3 ? '; gynaecology referral, MRI may be considered.' : o === 4 ? '; gynae-oncology evaluation / MRI (O-RADS MRI) recommended.' : '; gynae-oncologist referral recommended.'); } },
+    { id: 'paraovarian', l: 'Paraovarian cyst', fs: [SIDE2, F('sz', 'Size', 'dims', 'cm')], x: ['adn'],
+      t: v => 'A simple cyst' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + lc(v.side || 'Right') + ' adnexa separate from the ovary – paraovarian cyst.', i: v => (v.side || 'Right') + ' paraovarian cyst – ' + ORADS_TXT[2] + '.' },
+    { id: 'hydrosalpinx', l: 'Hydrosalpinx', fs: [SIDE], x: ['adn'],
+      t: v => 'A tubular anechoic structure with incomplete septations / waist sign is noted in the ' + sideAdj(v.side || 'Right') + ' adnexa.', i: v => (v.side || 'Right') + ' hydrosalpinx – ' + ORADS_TXT[2] + '.' },
+    { id: 'toa', l: 'Tubo-ovarian abscess', fs: [SIDE2, F('sz', 'Size', 'dims', 'cm')], x: ['adn'],
+      t: v => 'A thick-walled complex collection with internal echoes' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + lc(v.side || 'Right') + ' adnexa, with ill-defined ovary.', i: v => (v.side || 'Right') + ' tubo-ovarian abscess.' },
+    { id: 'torsion', l: 'Ovarian torsion', fs: [SIDE2, F('feat', 'Features', 'multi', ['enlarged oedematous ovary', 'peripherally displaced follicles', 'whirlpool sign of pedicle', 'absent / reduced flow', 'free fluid'])],
+      t: v => cap(lc(v.side || 'Right')) + ' ovary shows ' + list(v.feat && v.feat.length ? v.feat : ['enlarged oedematous ovary', 'peripherally displaced follicles', 'absent / reduced flow']) + '.', i: v => 'Features suggestive of ' + lc(v.side || 'Right') + ' ovarian torsion – urgent gynaecological opinion.' },
+    { id: 'corpus', l: 'Corpus luteum / dominant follicle', fs: [SIDE2, F('type', 'Type', 'sel', ['corpus luteum', 'dominant follicle']), F('sz', 'Size', 'num', 'cm')],
+      t: v => 'A ' + (v.type || 'corpus luteum') + opt(v.sz, ' measuring ', ' cm') + ' is noted in the ' + lc(v.side || 'Right') + ' ovary' + ((v.type || 'corpus luteum') === 'corpus luteum' ? ' with peripheral vascularity' : '') + ' (physiological).', i: () => null },
+    { id: 'notvis', l: 'Ovary not visualised', fs: [SIDE, F('why', 'Reason', 'sel', ['not visualised (?atrophic, post-menopausal)', 'obscured by bowel gas', 'post-oophorectomy status'])],
+      t: v => (v.side === 'Bilateral' ? 'Both ovaries are' : cap(lc(v.side || 'Right')) + ' ovary is') + ' ' + (v.why || 'not visualised (?atrophic, post-menopausal)') + '.', i: () => null },
+  ],
+};
+// Ovary findings are side-scoped for the "normal" clause
+OVARIES.fd.forEach(f => { if (!('x' in f)) f.x = []; if (!f.x.length) f.at = 'norm'; f.side = true; });
+
+const MISC = {
+  id: 'misc', name: 'Free fluid / peritoneum', lab: null,
+  meas: [],
+  cl: [{ k: 'ff', t: () => 'No free fluid is noted in abdomen or pelvis.' }],
+  fd: [
+    { id: 'ascites', l: 'Ascites', x: ['ff'], fs: [F('g', 'Amount', 'sel', ['Minimal', 'Mild', 'Moderate', 'Gross']), F('type', 'Nature', 'sel', ['clear', 'with internal echoes', 'with septations'])],
+      t: v => cap(lc(v.g || 'Mild')) + ' free fluid' + ((v.type || 'clear') === 'clear' ? '' : ' ' + v.type) + ' is noted in abdomen and pelvis.', i: v => cap(lc(v.g || 'Mild')) + ' ascites' + ((v.type || 'clear') === 'clear' ? '' : ' ' + v.type) + '.' },
+    { id: 'podfluid', l: 'Minimal fluid in POD', x: ['ff'], fs: [], t: () => 'Minimal free fluid is noted in the pouch of Douglas (likely physiological).', i: () => null },
+    { id: 'collection', l: 'Localised collection', rep: true, fs: [F('loc', 'Location', 'txt'), F('sz', 'Size', 'dims', 'cm')],
+      t: v => 'A localised collection with internal echoes' + opt(dims(v.sz), ' measuring ', ' cm') + (vol(v.sz) ? ' (vol ~' + vol(v.sz) + ' cc)' : '') + ' is noted' + opt(v.loc, ' in the ') + '.', i: v => 'Localised collection' + opt(v.loc, ' in the ') + '.' },
+    { id: 'pleural', l: 'Pleural effusion', fs: [SIDE, F('g', 'Amount', 'sel', ['Minimal', 'Mild', 'Moderate', 'Gross'])],
+      t: v => cap(lc(v.g || 'Minimal')) + ' ' + sideAdj(v.side || 'Right') + ' pleural effusion is noted.', i: v => cap(lc(v.g || 'Minimal')) + ' ' + sideAdj(v.side || 'Right') + ' pleural effusion.' },
+  ],
+};
+
+const RETRO = {
+  id: 'retro', name: 'Para-aortic / nodes / aorta', lab: null,
+  meas: [],
+  cl: [{ k: 'ln', t: () => 'Para-aortic area is partially obscured. No obvious lymphadenopathy to the extent visualized.' }],
+  fd: [
+    { id: 'nodes', l: 'Lymphadenopathy', x: ['ln'], fs: [F('loc', 'Location', 'multi', ['para-aortic', 'aortocaval', 'mesenteric', 'peripancreatic', 'porta hepatis', 'iliac', 'inguinal']), F('sz', 'Largest (short axis)', 'num', 'cm'), F('feat', 'Nature', 'sel', ['', 'with preserved fatty hilum (reactive)', 'round, with loss of fatty hilum', 'conglomerate / matted', 'necrotic'])],
+      t: v => 'Multiple enlarged ' + list(v.loc && v.loc.length ? v.loc : ['para-aortic']) + ' lymph nodes are noted' + opt(v.sz, ', largest measuring ', ' cm in short axis') + opt(v.feat, ' ') + '.', i: v => cap(list(v.loc && v.loc.length ? v.loc : ['para-aortic'])) + ' lymphadenopathy.' },
+    { id: 'mesadenitis', l: 'Mesenteric lymphadenitis', fs: [F('sz', 'Largest', 'num', 'cm')], t: v => 'Multiple mildly enlarged mesenteric lymph nodes are noted in the right iliac fossa' + opt(v.sz, ', largest measuring ', ' cm') + '.', i: () => 'Mesenteric lymphadenitis.' },
+    { id: 'aaa', l: 'Aortic aneurysm', fs: [F('d', 'Max diameter', 'num', 'cm'), F('loc', 'Level', 'sel', ['infrarenal', 'suprarenal', 'juxtarenal']), F('th', 'Mural thrombus', 'chk')],
+      t: v => 'Fusiform dilatation of the ' + (v.loc || 'infrarenal') + ' abdominal aorta' + opt(v.d, ' measuring ', ' cm in maximum diameter') + (v.th ? ' with eccentric mural thrombus' : '') + ' is noted.', i: v => (v.loc ? cap(v.loc) : 'Infrarenal') + ' abdominal aortic aneurysm' + opt(v.d, ' (', ' cm)') + '.' },
+  ],
+};
+
+const BOWEL = {
+  id: 'bowel', name: 'Bowel / appendix / hernia', lab: null,
+  meas: [], cl: [],
+  fd: [
+    { id: 'appx', l: 'Acute appendicitis', fs: [F('d', 'Appendix diameter', 'num', 'mm'), F('feat', 'Features', 'multi', ['non-compressible', 'appendicolith', 'increased mural vascularity', 'inflamed periappendiceal fat', 'periappendiceal fluid / collection', 'local tenderness'])],
+      t: v => 'Appendix is seen in the right iliac fossa, dilated' + opt(v.d, ' (', ' mm)') + (v.feat && v.feat.length ? ', ' + list(v.feat) : ', non-compressible') + '.', i: v => 'Features suggestive of acute appendicitis' + (v.feat && v.feat.includes('periappendiceal fluid / collection') ? ' with periappendiceal collection' : '') + '.' },
+    { id: 'appxnorm', l: 'Appendix visualised – normal', fs: [F('d', 'Diameter', 'num', 'mm')], t: v => 'Appendix is visualised and appears normal' + opt(v.d, ' (', ' mm)') + ', compressible.', i: () => null },
+    { id: 'bwt', l: 'Bowel wall thickening', rep: true, fs: [F('seg', 'Segment', 'txt'), F('wt', 'Wall thickness', 'num', 'mm')], t: v => 'Circumferential wall thickening' + opt(v.wt, ' (', ' mm)') + ' is noted involving the ' + (v.seg || '___') + '.', i: v => 'Bowel wall thickening' + opt(v.seg, ' involving ') + ' – further evaluation with CECT suggested.' },
+    { id: 'intuss', l: 'Intussusception', fs: [F('loc', 'Location', 'txt')], t: v => 'A target / pseudokidney appearance is noted' + opt(v.loc, ' in the ') + ' – intussusception.', i: () => 'Intussusception.' },
+    { id: 'obstr', l: 'Dilated bowel loops', fs: [F('d', 'Max calibre', 'num', 'cm'), F('peri', 'Peristalsis', 'sel', ['increased (to-and-fro)', 'reduced'])], t: v => 'Dilated fluid-filled small bowel loops' + opt(v.d, ' (max ', ' cm)') + ' with ' + (v.peri || 'increased (to-and-fro)') + ' peristalsis are noted.', i: () => 'Dilated small bowel loops – ?obstruction; correlate clinically / CT.' },
+    { id: 'hernia', l: 'Hernia', rep: true, fs: [F('type', 'Type', 'sel', ['umbilical', 'paraumbilical', 'epigastric', 'incisional', 'right inguinal', 'left inguinal', 'femoral']), F('neck', 'Defect size', 'num', 'cm'), F('cont', 'Contents', 'sel', ['omentum', 'bowel loops', 'omentum and bowel loops', 'fluid']), F('red', 'Reducibility', 'sel', ['reducible', 'non-reducible'])],
+      t: v => 'A defect' + opt(v.neck, ' measuring ', ' cm') + ' is noted at the ' + (v.type || 'umbilical') + ' region with herniation of ' + (v.cont || 'omentum') + ', ' + (v.red || 'reducible') + ' on compression.', i: v => cap(v.type || 'umbilical') + ' hernia containing ' + (v.cont || 'omentum') + ' (' + (v.red || 'reducible') + ').' },
+  ],
+};
+
+/* ======================================================================
+ *  THYROID / NECK
+ * ==================================================================== */
+const TIRADS = {
+  comp: [['cystic or almost completely cystic', 0], ['spongiform', 0], ['mixed cystic and solid', 1], ['solid or almost completely solid', 2]],
+  echo: [['anechoic', 0], ['hyperechoic or isoechoic', 1], ['hypoechoic', 2], ['very hypoechoic', 3]],
+  shape: [['wider-than-tall', 0], ['taller-than-wide', 3]],
+  margin: [['smooth', 0], ['ill-defined', 0], ['lobulated or irregular', 2], ['extra-thyroidal extension', 3]],
+  foci: [['large comet-tail artefacts', 0], ['macrocalcifications', 1], ['peripheral (rim) calcifications', 2], ['punctate echogenic foci', 3]],
+};
+const pts = (tab, val) => { const r = TIRADS[tab].find(x => x[0] === val); return r ? r[1] : 0; };
+function tirads(v) {
+  const p = pts('comp', v.comp) + pts('echo', v.echo) + pts('shape', v.shape) + pts('margin', v.margin) + (v.foci || []).reduce((a, f) => a + pts('foci', f), 0);
+  const tr = p <= 1 ? 1 : p === 2 ? 2 : p === 3 ? 3 : p <= 6 ? 4 : 5;
+  const d = maxDim(v.sz);
+  const th = { 3: [2.5, 1.5], 4: [1.5, 1.0], 5: [1.0, 0.5] }[tr];
+  let rec = tr <= 2 ? 'No FNA required' : '';
+  if (th) rec = d == null ? 'FNA if ≥' + th[0] + ' cm; follow-up if ≥' + th[1] + ' cm' : d >= th[0] ? 'FNA recommended' : d >= th[1] ? 'Follow-up US recommended' : 'No FNA or follow-up required';
+  const name = { 1: 'TR1 (benign)', 2: 'TR2 (not suspicious)', 3: 'TR3 (mildly suspicious)', 4: 'TR4 (moderately suspicious)', 5: 'TR5 (highly suspicious)' }[tr];
+  return { p, tr, name, rec };
+}
+const lobeSec = (id, name, lab) => ({
+  id, name, lab, meas: [F('d', 'AP x TR x CC', 'dims', 'cm')],
+  cl: [{ k: 'd', t: m => 'Measures ' + (dims(m.d) || '__') + ' cm (AP x TR x CC)' + (vol(m.d) ? ', volume ~' + vol(m.d) + ' ml' : '') + '.' }], fd: [],
+});
+const THY_R = lobeSec('thyR', 'Right lobe', 'Right lobe');
+const THY_L = lobeSec('thyL', 'Left lobe', 'Left lobe');
+const THY_I = { id: 'thyI', name: 'Isthmus', lab: 'Isthmus', meas: [F('t', 'Thickness', 'num', 'mm')], cl: [{ k: 't', t: m => 'Measures ' + (has(m.t) ? m.t : '__') + ' mm.' }], fd: [] };
+const THYROID = {
+  id: 'thy', name: 'Thyroid parenchyma & nodules', lab: null, meas: [],
+  cl: [
+    { k: 'diff', t: () => 'Both lobes of thyroid and isthmus appear normal in size, shape, echo-texture and vascularity.' },
+    { k: 'focal', t: () => 'No evident focal lesion noted within the thyroid gland.' },
+  ],
+  impN: c => c.hasAny(['nodule', 'mng', 'cyst']) ? null : 'No evident focal lesion in thyroid gland.',
+  fd: [
+    { id: 'thyroiditis', l: 'Chronic thyroiditis (Hashimoto)', x: ['diff'], fs: [F('feat', 'Features', 'multi', ['diffusely enlarged', 'heterogeneous coarse echotexture', 'diffusely hypoechoic', 'micronodular / pseudonodular pattern', 'echogenic fibrous septae', 'increased vascularity', 'atrophic gland'])],
+      t: v => 'Thyroid gland shows ' + list(v.feat && v.feat.length ? v.feat : ['heterogeneous coarse echotexture', 'diffusely hypoechoic', 'echogenic fibrous septae']) + '.', i: () => 'Features suggestive of Chronic thyroiditis.' },
+    { id: 'graves', l: 'Graves / diffuse toxic goitre', x: ['diff'], fs: [], t: () => 'Thyroid gland is diffusely enlarged and hypoechoic with markedly increased vascularity ("thyroid inferno").', i: () => 'Diffuse thyroid enlargement with increased vascularity – ?Graves\' disease; correlate with thyroid function.' },
+    { id: 'goitre', l: 'Diffuse goitre', x: ['diff'], fs: [], t: () => 'Both lobes and isthmus are diffusely enlarged with homogeneous echotexture.', i: () => 'Diffuse goitre.' },
+    { id: 'subacute', l: 'Subacute (de Quervain) thyroiditis', x: ['diff'], fs: [SIDE], t: v => 'Ill-defined geographic hypoechoic areas with reduced vascularity are noted in the ' + (v.side === 'Bilateral' ? 'both lobes' : lc(v.side || 'Right') + ' lobe') + '.', i: () => 'Features may represent subacute (de Quervain) thyroiditis – correlate clinically.' },
+    { id: 'nodule', l: 'Nodule (ACR TI-RADS)', rep: true, x: ['focal'],
+      fs: [F('lobe', 'Lobe', 'sel', ['right lobe', 'left lobe', 'isthmus']), F('pole', 'Region', 'sel', ['', 'upper pole', 'mid pole', 'lower pole']), F('sz', 'Size', 'dims', 'cm'),
+           F('comp', 'Composition', 'sel', TIRADS.comp.map(x => x[0]), { d: 'solid or almost completely solid' }),
+           F('echo', 'Echogenicity', 'sel', TIRADS.echo.map(x => x[0]), { d: 'hyperechoic or isoechoic' }),
+           F('shape', 'Shape', 'sel', TIRADS.shape.map(x => x[0])),
+           F('margin', 'Margin', 'sel', TIRADS.margin.map(x => x[0])),
+           F('foci', 'Echogenic foci', 'multi', TIRADS.foci.map(x => x[0])),
+           F('halo', 'Halo', 'chk'), F('vasc', 'Vascularity', 'sel', ['', 'peripheral vascularity', 'internal vascularity', 'no vascularity'])],
+      t: (v, m, c) => { const r = tirads(v);
+        return (c.count('nodule') > 1 ? '\nNodule ' + c.n + ': a ' : 'A ') + (v.comp || 'solid or almost completely solid') + ', ' + (v.echo || 'hyperechoic or isoechoic') + ' nodule' + opt(dims(v.sz), ' measuring ', ' cm') +
+          ' is noted in the ' + opt(v.pole, '', ' of the ') + (v.lobe || 'right lobe') + ', ' + (v.shape || 'wider-than-tall') + ' with ' + (v.margin || 'smooth') + ' margins' +
+          (v.foci && v.foci.length ? ', showing ' + list(v.foci) : ' and no echogenic foci') + (v.halo ? ', with peripheral halo' : '') + opt(v.vasc, ' and ') + '. ACR TI-RADS: ' + r.p + ' points – ' + r.name + '.'; },
+      i: (v, m, c) => { const r = tirads(v);
+        return (c.count('nodule') === 1 && !c.has('mng') ? 'Solitary thyroid nodule' : 'Nodule ' + (c.count('nodule') > 1 ? c.n + ' ' : '')) + (c.count('nodule') === 1 && !c.has('mng') ? ' in ' : 'in ') + opt(v.pole, '', ' of ') + (v.lobe || 'right lobe') + opt(dims(v.sz), ' (', ' cm)') + ' – ACR TI-RADS ' + r.name + '; ' + r.rec + '.'; } },
+    { id: 'mng', l: 'Multinodular goitre', x: ['diff'], fs: [], t: () => 'Both lobes of thyroid are enlarged with multiple nodules as described.', i: () => 'Multiple nodules in both lobes of thyroid as described above - Multi nodular goitre.' },
+    { id: 'cyst', l: 'Colloid cyst', rep: true, x: ['focal'], fs: [F('lobe', 'Lobe', 'sel', ['right lobe', 'left lobe', 'isthmus']), F('sz', 'Size', 'dims', 'cm')],
+      t: v => 'A small anechoic cyst with echogenic foci showing comet-tail artefacts' + opt(dims(v.sz), ' measuring ', ' cm') + ' is noted in the ' + (v.lobe || 'right lobe') + ' – colloid cyst (TR1).', i: v => 'Colloid cyst in ' + (v.lobe || 'right lobe') + ' (TI-RADS TR1).' },
+    { id: 'postthy', l: 'Post-thyroidectomy', x: ['diff', 'focal'], fs: [F('ext', 'Extent', 'sel', ['total thyroidectomy', 'right hemithyroidectomy', 'left hemithyroidectomy'])],
+      t: v => 'Post ' + (v.ext || 'total thyroidectomy') + ' status. ' + ((v.ext || 'total').startsWith('total') ? 'No residual / recurrent thyroid tissue seen in the thyroid bed.' : 'Remaining lobe appears normal.'), i: v => 'Post ' + (v.ext || 'total thyroidectomy') + ' status.' },
+  ],
+};
+const SALIVARY = {
+  id: 'sal', name: 'Submandibular glands', lab: null, meas: [],
+  cl: [{ k: 'n', t: () => 'Bilateral submandibular glands appear normal sono-graphically.' }],
+  fd: [
+    { id: 'sialad', l: 'Sialadenitis', x: ['n'], fs: [SIDE], t: v => (v.side === 'Bilateral' ? 'Both submandibular glands appear' : cap(lc(v.side || 'Right')) + ' submandibular gland appears') + ' bulky and hypoechoic with increased vascularity.', i: v => sideAdj(v.side || 'Right').replace(/^./, c => c.toUpperCase()) + ' submandibular sialadenitis.' },
+    { id: 'sialolith', l: 'Sialolithiasis', x: ['n'], fs: [SIDE2, F('sz', 'Size', 'num', 'mm'), F('duct', 'Dilated Wharton duct', 'chk')], t: v => 'A calculus' + opt(v.sz, ' measuring ', ' mm') + ' is noted in the ' + lc(v.side || 'Right') + ' submandibular gland / duct' + (v.duct ? ' with dilated Wharton\'s duct' : '') + '.', i: v => (v.side || 'Right') + ' submandibular sialolithiasis.' },
+  ],
+};
+const NECKVESS = { id: 'nv', name: 'Neck vessels', lab: null, meas: [], cl: [{ k: 'n', t: () => 'Major vessels of the neck are within normal limits.' }],
+  fd: [{ id: 'ijvt', l: 'IJV thrombosis', x: ['n'], fs: [SIDE2], t: v => 'Echogenic thrombus is noted in the ' + lc(v.side || 'Right') + ' internal jugular vein.', i: v => (v.side || 'Right') + ' IJV thrombosis.' }] };
+const NECKLN = {
+  id: 'ln', name: 'Cervical lymph nodes', lab: null, meas: [],
+  cl: [{ k: 'n', t: () => 'No evidence of any cervical lymphadenopathy noted bilaterally' }],
+  impN: () => 'No significant cervical lymphadenopathy.',
+  fd: [
+    { id: 'reactive', l: 'Reactive nodes', x: ['n'], fs: [SIDE, F('lvl', 'Levels', 'txt'), F('sz', 'Largest (short axis)', 'num', 'cm')],
+      t: v => 'Few ' + sideAdj(v.side || 'Bilateral') + ' level ' + (v.lvl || 'II') + ' cervical lymph nodes are noted with preserved fatty hilum' + opt(v.sz, ', largest measuring ', ' cm in short axis') + '.', i: () => 'Few reactive-appearing cervical lymph nodes.' },
+    { id: 'suspnode', l: 'Suspicious nodes', rep: true, x: ['n'], fs: [SIDE, F('lvl', 'Level', 'txt'), F('sz', 'Size', 'dims', 'cm'), F('feat', 'Features', 'multi', ['round shape', 'loss of fatty hilum', 'microcalcifications', 'cystic change', 'necrosis', 'peripheral / chaotic vascularity', 'matting'])],
+      t: v => 'Enlarged ' + sideAdj(v.side || 'Right') + ' level ' + (v.lvl || 'II') + ' lymph node' + opt(dims(v.sz), ' measuring ', ' cm') + (v.feat && v.feat.length ? ' with ' + list(v.feat) : '') + ' is noted.', i: v => 'Suspicious ' + sideAdj(v.side || 'Right') + ' level ' + (v.lvl || 'II') + ' cervical lymphadenopathy – FNAC advised.' },
+  ],
+};
+
+/* ======================================================================
+ *  CAROTID / VERTEBRAL DOPPLER
+ * ==================================================================== */
+const VESSELS = ['CCA', 'Vertebral', 'ICA', 'ECA'];
+// SRU 2003 consensus (Grant et al., Radiology 2003) — ICA stenosis by PSV (primary) with EDV / ratio as supporting parameters
+function sruGrade(psv, edv, ratio, plaque) {
+  if (!has(psv)) return null;
+  psv = +psv;
+  if (psv > 230) return { g: '≥70% (short of near-occlusion)', sig: true };
+  if (psv >= 125) return { g: '50–69%', sig: true };
+  return plaque ? { g: '<50%', sig: false } : { g: 'normal (no stenosis)', sig: false };
+}
+const CAR_IMT = {
+  id: 'imt', name: 'Intima-media thickness', lab: null,
+  meas: [F('r', 'Right CCA IMT', 'num', 'mm'), F('l', 'Left CCA IMT', 'num', 'mm')],
+  cl: [
+    { k: 'imt', t: m => { const r = has(m.r) && +m.r > 0.9, l = has(m.l) && +m.l > 0.9;
+      return 'B Mode gray scale examinations showed the carotid vessels to have ' + (r && l ? 'increased intimal thickness bilaterally.' : r ? 'increased intimal thickness on the right side and normal intimal thickness on the left side.' : l ? 'increased intimal thickness on the left side and normal intimal thickness on the right side.' : 'normal intimal thickness bilaterally.'); } },
+    { k: 'val', t: m => '\nCCA IMT : Right - ' + (has(m.r) ? m.r + ' mm' : '__') + '   Left - ' + (has(m.l) ? m.l + ' mm' : '__') },
+  ],
+  auto: m => { const r = has(m.r) && +m.r > 0.9, l = has(m.l) && +m.l > 0.9;
+    return r && l ? [{ i: 'Bilateral raised CCA IMT suggestive of atherosclerotic changes on both sides.' }] : r || l ? [{ i: (r ? 'Right' : 'Left') + ' raised CCA IMT suggestive of atherosclerotic changes.' }] : []; },
+  fd: [],
+};
+const CAR_LUMEN = {
+  id: 'lumen', name: 'Plaques / lumen', lab: null, meas: [],
+  cl: [
+    { k: 'fill', t: (m, c) => c.hasAny(['plaque', 'thrombus', 'dissection']) ? 'Color Doppler shows normal filling up of the lumen of vessels except as described below.' : 'Color Doppler shows normal filling up of the lumen of vessels.' },
+  ],
+  fd: [
+    { id: 'plaque', l: 'Plaque', rep: true,
+      fs: [SIDE2, F('loc', 'Location', 'sel', ['carotid bulb', 'proximal ICA', 'CCA', 'ECA origin', 'bulb extending into ICA']), F('comp', 'Echogenicity', 'sel', ['calcified', 'echogenic (fibrous)', 'mixed / heterogeneous', 'hypoechoic (soft)']),
+           F('surf', 'Surface', 'sel', ['smooth', 'irregular', 'ulcerated']), F('th', 'Thickness', 'num', 'mm'), F('len', 'Length', 'num', 'mm'), F('pct', 'Diameter narrowing', 'num', '%')],
+      t: v => 'A ' + (v.comp || 'calcified') + ' plaque with ' + (v.surf || 'smooth') + ' surface' + (has(v.th) || has(v.len) ? ' measuring ' + [opt(v.th, '', ' mm (thickness)'), opt(v.len, '', ' mm (length)')].filter(Boolean).join(' x ') : '') + ' is noted in the ' + lc(v.side || 'Right') + ' ' + (v.loc || 'carotid bulb') + opt(v.pct, ', causing ~', '% luminal narrowing') + '.',
+      i: v => cap(v.comp || 'calcified') + ' plaque in ' + lc(v.side || 'Right') + ' ' + (v.loc || 'carotid bulb') + ((v.surf || 'smooth') !== 'smooth' ? ' with ' + v.surf + ' surface' : '') + '.' },
+    { id: 'thrombus', l: 'Intraluminal thrombus', fs: [SIDE2, F('v', 'Vessel', 'sel', ['CCA', 'ICA', 'ECA'])], t: v => 'Intraluminal echogenic thrombus is noted in the ' + lc(v.side || 'Right') + ' ' + (v.v || 'ICA') + '.', i: v => (v.side || 'Right') + ' ' + (v.v || 'ICA') + ' thrombus.' },
+    { id: 'dissection', l: 'Dissection', fs: [SIDE2, F('v', 'Vessel', 'sel', ['CCA', 'ICA', 'vertebral'])], t: v => 'An intimal flap with true and false lumen is noted in the ' + lc(v.side || 'Right') + ' ' + (v.v || 'ICA') + '.', i: v => (v.side || 'Right') + ' ' + (v.v || 'ICA') + ' dissection – CTA / MRA recommended.' },
+  ],
+};
+const CAR_DOP = {
+  id: 'dop', name: 'Spectral Doppler (PSV / EDV)', lab: null,
+  meas: [F('vt', 'Velocities (cm/s)', 'vtab')],
+  cl: [
+    { k: 'nost', t: () => 'No evidence of thrombus or flow limiting stenosis seen.' },
+    { k: 'spec', t: () => 'On duplex Doppler ultrasonography, normal arterial spectral pattern was seen in the bilateral common carotid, bilateral external carotid arteries and the bilateral internal carotid arteries with normal peak systolic velocities.' },
+  ],
+  auto: (m, c) => {
+    const out = [], sig = [];
+    for (const sd of ['R', 'L']) {
+      if (c.all.hasSide('occl', sd) || c.all.hasSide('nearoccl', sd)) continue;
+      const psv = m['vt_' + sd + '_ICA_ps'], edv = m['vt_' + sd + '_ICA_ed'], cca = m['vt_' + sd + '_CCA_ps'];
+      const ratio = has(psv) && has(cca) && +cca > 0 ? +(psv / cca).toFixed(1) : null;
+      const g = sruGrade(psv, edv, ratio, c.all.hasSide('plaque', sd));
+      if (!g || g.g.startsWith('normal')) continue;
+      const side = S[sd];
+      out.push({ t: 'The ' + lc(side) + ' ICA shows PSV of ' + psv + ' cm/s' + opt(edv, ', EDV ', ' cm/s') + (ratio ? ', ICA/CCA PSV ratio ' + ratio : '') + (g.sig ? ' with post-stenotic spectral broadening' : '') + ' – consistent with ' + g.g + ' stenosis (SRU consensus criteria).',
+        i: side + ' ICA ' + g.g + ' stenosis.', sig: g.sig });
+      if (g.sig) sig.push(sd);
+    }
+    if (sig.length) out.forEach(o => { o.x = ['nost', 'spec']; });
+    if (sig.length && sig.length < 2) out.push({ x: ['spec'], t: 'Normal arterial spectral pattern is seen in the remaining vessels.' });
+    return out;
+  },
+  impN: c => c.hasAny(['occl', 'nearoccl', 'ccaSten']) || c.autoSig ? null : 'No evident flow limiting stenosis involving major neck arteries.',
+  fd: [
+    { id: 'nearoccl', l: 'ICA near-occlusion (string sign)', x: ['nost', 'spec'], side: true, fs: [SIDE2], t: v => 'The ' + lc(v.side || 'Right') + ' ICA shows a markedly narrowed lumen with trickle flow (string sign) – near-occlusion.', i: v => (v.side || 'Right') + ' ICA near-occlusion.' },
+    { id: 'occl', l: 'ICA occlusion', x: ['nost', 'spec'], side: true, fs: [SIDE2], t: v => 'No colour or spectral flow is seen in the ' + lc(v.side || 'Right') + ' ICA, which is filled with echogenic material; the ipsilateral CCA shows a high-resistance waveform.', i: v => (v.side || 'Right') + ' ICA total occlusion.' },
+    { id: 'ccaSten', l: 'CCA / ECA stenosis', x: ['nost', 'spec'], fs: [SIDE2, F('v', 'Vessel', 'sel', ['CCA', 'ECA']), F('psv', 'PSV', 'num', 'cm/s'), F('pct', 'Estimated narrowing', 'num', '%')],
+      t: v => 'The ' + lc(v.side || 'Right') + ' ' + (v.v || 'CCA') + ' shows focal narrowing' + opt(v.pct, ' (~', '%)') + ' with elevated PSV' + opt(v.psv, ' of ', ' cm/s') + ' and post-stenotic turbulence.', i: v => (v.side || 'Right') + ' ' + (v.v || 'CCA') + ' stenosis' + opt(v.pct, ' (~', '%)') + '.' },
+  ],
+};
+const CAR_VERT = {
+  id: 'vert', name: 'Vertebral arteries', lab: null, meas: [],
+  cl: [{ k: 'n', t: (m, c) => { const s = c.sides(); return !s.R && !s.L ? 'Bilateral vertebral arteries show normal cranial flow.' : !s.R ? 'Right vertebral artery shows normal cranial flow.' : !s.L ? 'Left vertebral artery shows normal cranial flow.' : ''; } }],
+  impN: c => { const s = c.sides(); return !s.R && !s.L ? 'Both vertebral arteries show cranial flow.' : !s.R ? 'Right vertebral artery shows cranial flow.' : !s.L ? 'Left vertebral artery shows cranial flow.' : null; },
+  fd: [
+    { id: 'steal', at: 'n', l: 'Reversed / to-and-fro flow (subclavian steal)', side: true, x: [], fs: [SIDE2, F('type', 'Pattern', 'sel', ['complete reversal (caudal flow)', 'partial (bidirectional / to-and-fro) flow', 'systolic deceleration (pre-steal)'])],
+      t: v => 'The ' + lc(v.side || 'Left') + ' vertebral artery shows ' + (v.type || 'complete reversal (caudal flow)') + '.', i: v => (v.side || 'Left') + ' vertebral artery ' + (v.type || 'complete reversal (caudal flow)') + ' – suggestive of ' + lc(v.side || 'Left') + ' subclavian steal; evaluate subclavian artery.' },
+    { id: 'vabsent', at: 'n', l: 'No flow / not visualised', side: true, x: [], fs: [SIDE2], t: v => 'No flow is demonstrated in the ' + lc(v.side || 'Right') + ' vertebral artery.', i: v => (v.side || 'Right') + ' vertebral artery – no flow (?occlusion); CTA / MRA suggested.' },
+    { id: 'vhypo', at: 'n', l: 'Hypoplastic', side: true, x: [], fs: [SIDE2, F('d', 'Diameter', 'num', 'mm')], t: v => 'The ' + lc(v.side || 'Right') + ' vertebral artery is hypoplastic' + opt(v.d, ' (', ' mm)') + ' with cranial flow.', i: v => 'Hypoplastic ' + lc(v.side || 'Right') + ' vertebral artery with cranial flow.' },
+    { id: 'vhr', at: 'n', l: 'High-resistance flow', side: true, x: [], fs: [SIDE2], t: v => 'The ' + lc(v.side || 'Right') + ' vertebral artery shows cranial flow with high-resistance waveform (?distal stenosis).', i: v => (v.side || 'Right') + ' vertebral high-resistance flow – ?distal stenosis.' },
+  ],
+};
+
+/* ======================================================================
+ *  TEMPLATES
+ * ==================================================================== */
+const SECTIONS = {};
+[LIVER, PORTA, GB, PANCREAS, SPLEEN, kidneySide('R'), kidneySide('L'), BLADDER, UTERUS, OVARIES, PROSTATE, MISC, RETRO, BOWEL,
+ THY_R, THY_L, THY_I, THYROID, SALIVARY, NECKVESS, NECKLN, CAR_IMT, CAR_LUMEN, CAR_DOP, CAR_VERT].forEach(s => { SECTIONS[s.id] = s; });
+
+const TEMPLATES = [
+  { id: 'abd', title: 'Abdomen & Pelvis', heading: 'USG ABDOMEN AND PELVIS', icon: '◐',
+    secs: ['liver', 'porta', 'gb', 'pancreas', 'spleen', 'kidR', 'kidL', 'ub', 'uterus', 'ovaries', 'prostate', 'misc', 'retro', 'bowel'],
+    normalImp: 'No sonologically significant abnormality detected at present study.' },
+  { id: 'kub', title: 'KUB', heading: 'USG KUB', icon: '◑',
+    secs: ['kidR', 'kidL', 'ub', 'uterus', 'ovaries', 'prostate'],
+    normalImp: 'No sonologically significant abnormality detected at present study.' },
+  { id: 'pelvis', title: 'Pelvis', heading: 'USG PELVIS', icon: '◒',
+    secs: ['ub', 'uterus', 'ovaries', 'prostate', 'misc'],
+    normalImp: 'No sonologically significant abnormality detected at present study.' },
+  { id: 'thyroid', title: 'Thyroid / Neck', heading: 'USG THYROID / NECK', icon: '◓',
+    secs: ['thyR', 'thyL', 'thyI', 'thy', 'sal', 'nv', 'ln'], normalImp: '' },
+  { id: 'carotid', title: 'Carotid–Vertebral Doppler', heading: 'ULTRASOUND CAROTID VERTEBRAL DOPPLER', icon: '≋',
+    secs: ['imt', 'lumen', 'dop', 'vert'], normalImp: '' },
+];
+
+const DEFAULT_MACHINES = ['GE Logic S7', 'Mindray Resona I9'];
+
+if (typeof module !== 'undefined') module.exports = { SECTIONS, TEMPLATES, tirads, sruGrade, vol, VESSELS };
+
+</script>
+<script>
+/* USG Reporter — report engine (pure, no DOM). Builds report blocks + impression from state. */
+'use strict';
+
+function fieldDefault(f) {
+  if ('d' in f) return f.d;
+  if (f.t === 'sel') return f.o[0];
+  if (f.t === 'multi') return [];
+  if (f.t === 'chk') return false;
+  if (f.t === 'dims') return ['', '', ''];
+  return '';
+}
+function newItem(fd) {
+  const v = {};
+  fd.fs.forEach(f => { v[f.k] = fieldDefault(f); });
+  Object.assign(v, fd.d || {});
+  return { fid: fd.id, v, uid: Math.random().toString(36).slice(2, 9) };
+}
+
+function activeSections(state) {
+  const tpl = TEMPLATES.find(t => t.id === state.tpl);
+  return tpl.secs.map(id => SECTIONS[id]).filter(s => !s.sex || s.sex === state.patient.sex);
+}
+function secState(state, id) {
+  if (!state.secs[id]) state.secs[id] = { m: {}, items: [], note: '' };
+  return state.secs[id];
+}
+const sideHit = (val, sd) => val === 'Bilateral' || val === S[sd];
+
+function makeCtx(state, sec, st, extra) {
+  const items = st.items;
+  const ids = items.map(it => it.fid);
+  return Object.assign({
+    sex: state.patient.sex, meno: state.patient.meno,
+    has: id => ids.includes(id),
+    hasAny: a => a.some(id => ids.includes(id)),
+    count: id => ids.filter(x => x === id).length,
+    first: () => true,
+    sides: () => {
+      const r = { R: false, L: false };
+      items.forEach(it => { const fd = sec.fd.find(f => f.id === it.fid); if (fd && fd.side && it.v.side) { if (sideHit(it.v.side, 'R')) r.R = true; if (sideHit(it.v.side, 'L')) r.L = true; } });
+      return r;
+    },
+    all: {
+      hasSide: (fid, sd) => activeSections(state).some(s => (state.secs[s.id] || { items: [] }).items.some(it => it.fid === fid && sideHit(it.v.side, sd))),
+    },
+  }, extra || {});
+}
+
+/** Returns {text, imps:[...], table?} for a section */
+function buildSection(state, sec) {
+  const st = secState(state, sec.id);
+  const m = st.m;
+  const ctx = makeCtx(state, sec, st);
+  const autos = sec.auto ? sec.auto(m, ctx) : [];
+  ctx.autoSig = autos.some(a => a.sig);
+
+  // emitters: selected findings + automatic (measurement-driven) findings
+  const em = st.items.map((it, idx) => {
+    const fd = sec.fd.find(f => f.id === it.fid);
+    if (!fd) return null;
+    const firstIdx = st.items.findIndex(o => o.fid === it.fid);
+    const lastIdx = st.items.map(o => o.fid).lastIndexOf(it.fid);
+    const nth = st.items.slice(0, idx + 1).filter(o => o.fid === it.fid).length;
+    const c = Object.assign({}, ctx, { first: () => idx === lastIdx, isFirst: idx === firstIdx, n: nth });
+    let t = '', i = null;
+    try { t = fd.t(it.v, m, c); } catch (e) { t = '[' + fd.l + ']'; console.error(e); }
+    try { i = fd.i ? fd.i(it.v, m, c) : null; } catch (e) { console.error(e); }
+    return { x: fd.x || [], at: fd.at, t, i, done: false };
+  }).filter(Boolean).concat(autos.map(a => ({ x: a.x || [], t: a.t || '', i: a.i || null, done: false })));
+
+  const parts = [];
+  sec.cl.forEach(cl => {
+    em.filter(e => e.at === cl.k && !e.done).forEach(e => { parts.push(e.t); e.done = true; });
+    const over = em.filter(e => e.x.includes(cl.k));
+    if (over.length) over.forEach(e => { if (!e.done) { parts.push(e.t); e.done = true; } });
+    else parts.push(cl.t(m, ctx));
+  });
+  em.forEach(e => { if (!e.done) { parts.push(e.t); e.done = true; } });
+  if (st.note && st.note.trim()) parts.push(st.note.trim());
+  const text = parts.filter(p => p && p.trim()).map(p => p.replace(/^ +| +$/g, '')).join(' ').replace(/ ?\n ?/g, '\n');
+
+  let imps = [];
+  em.forEach(e => { if (e.i) imps = imps.concat(e.i); });
+  if (!imps.length && sec.impN) { const n = sec.impN(ctx); if (n) imps.push(n); }
+
+  let table = null;
+  if (sec.meas.some(f => f.t === 'vtab')) {
+    const hasAny = Object.keys(m).some(k => k.startsWith('vt_') && has(m[k]));
+    table = { hasAny, rows: VESSELS.map(vs => [vs, ...['R', 'L'].map(sd => {
+      const p = m['vt_' + sd + '_' + vs + '_ps'], e = m['vt_' + sd + '_' + vs + '_ed'];
+      return has(p) || has(e) ? (has(p) ? p : '–') + ' / ' + (has(e) ? e : '–') : '';
+    })]) };
+  }
+  return { text, imps, table };
+}
+
+function mergeImps(list) {
+  const out = [], groups = {};
+  list.forEach(x => {
+    if (x && typeof x === 'object') {
+      if (!groups[x.key]) { groups[x.key] = { obj: x, sides: new Set() }; out.push(groups[x.key]); }
+      groups[x.key].sides.add(x.side);
+    } else if (x && !out.includes(x)) out.push(x);
+  });
+  return out.map(o => {
+    if (typeof o === 'string') return o;
+    const s = o.sides;
+    return o.obj.f(s.has('R') && s.has('L') ? 'both kidneys' : s.has('R') ? 'right kidney' : 'left kidney');
+  });
+}
+
+function buildReport(state) {
+  const tpl = TEMPLATES.find(t => t.id === state.tpl);
+  const blocks = [];
+  let imps = [];
+  activeSections(state).forEach(sec => {
+    const r = buildSection(state, sec);
+    if (r.text || sec.lab) blocks.push({ lab: sec.lab, text: r.text, table: r.table });
+    imps = imps.concat(r.imps);
+  });
+  imps = mergeImps(imps);
+  if (!imps.length && tpl.normalImp) imps.push(tpl.normalImp);
+  (state.extraImp || '').split('\n').map(s => s.trim()).filter(Boolean).forEach(s => imps.push(s));
+  return { tpl, blocks, imps };
+}
+
+/* ---------- renderers ---------- */
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const nl = s => esc(s).replace(/\n/g, '<br>');
+
+function fmtDate(d) {
+  if (!d) return '';
+  const [y, mo, da] = d.split('-');
+  return da + '/' + mo + '/' + y;
+}
+
+function reportHTML(state, settings) {
+  const R = buildReport(state), p = state.patient;
+  const age = [p.age ? p.age + (/[a-z]/i.test(p.age) ? '' : ' Y') : '', p.sex === 'F' ? 'F' : 'M'].filter(Boolean).join(' / ');
+  let h = '<div class="rep">';
+  if (settings.letterhead) h += '<div class="lh-space" style="height:' + (+settings.lhSpace || 35) + 'mm"></div>';
+  else if (settings.inst) h += '<div class="inst"><div class="inst-name">' + esc(settings.inst) + '</div>' + (settings.addr ? '<div class="inst-addr">' + esc(settings.addr) + '</div>' : '') + '</div>';
+  h += '<table class="pt"><tr><td><b>Name:</b> ' + esc(p.name) + '</td><td><b>Age / Sex:</b> ' + esc(age) + '</td></tr>' +
+    '<tr><td><b>Patient ID:</b> ' + esc(p.pid) + '</td><td><b>Date:</b> ' + esc(fmtDate(p.date)) + '</td></tr>' +
+    '<tr><td colspan="2"><b>Ref. by:</b> ' + esc(p.ref) + '</td></tr></table>';
+  h += '<div class="ttl">' + esc(R.tpl.heading) + '</div>';
+  if (state.machine) h += '<div class="mach">(Realtime imaging using probes of ' + esc(state.machine) + ')</div>';
+  if (p.ind) h += '<div class="ind"><b>Clinical details:</b> ' + esc(p.ind) + '</div>';
+  h += '<table class="fx">';
+  R.blocks.forEach(b => {
+    if (b.lab) h += '<tr><td class="lab">' + esc(b.lab) + '</td><td class="col">:</td><td>' + nl(b.text) + '</td></tr>';
+    else if (b.text) h += '<tr><td colspan="3" class="nar">' + nl(b.text) + '</td></tr>';
+    if (b.table && b.table.hasAny) {
+      h += '<tr><td colspan="3"><table class="vt"><tr><th></th><th>RIGHT<br><small>PS / EDV (cm/s)</small></th><th>LEFT<br><small>PS / EDV (cm/s)</small></th></tr>' +
+        b.table.rows.map(r => '<tr><td><b>' + r[0] + '</b></td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td></tr>').join('') + '</table></td></tr>';
+    }
+  });
+  h += '</table>';
+  h += '<div class="imp-h">IMPRESSION</div><ul class="imp">' + R.imps.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
+  if (settings.doc) h += '<div class="sig"><div class="sig-name">' + esc(settings.doc) + '</div>' + (settings.qual ? '<div>' + esc(settings.qual) + '</div>' : '') + (settings.reg ? '<div>' + esc(settings.reg) + '</div>' : '') + '</div>';
+  if (settings.foot) h += '<div class="foot">' + esc(settings.foot) + '</div>';
+  h += '</div>';
+  return h;
+}
+
+function reportText(state) {
+  const R = buildReport(state), p = state.patient, out = [];
+  out.push('Name: ' + (p.name || '') + '   Age/Sex: ' + (p.age || '') + '/' + p.sex);
+  if (p.pid) out.push('ID: ' + p.pid);
+  out.push('Date: ' + fmtDate(p.date) + (p.ref ? '   Ref. by: ' + p.ref : ''));
+  out.push('', R.tpl.heading);
+  if (state.machine) out.push('(Realtime imaging using probes of ' + state.machine + ')');
+  if (p.ind) out.push('Clinical details: ' + p.ind);
+  out.push('');
+  R.blocks.forEach(b => {
+    if (b.lab) out.push(b.lab.padEnd(15) + ': ' + b.text); else if (b.text) out.push(b.text);
+    if (b.table && b.table.hasAny) {
+      out.push('', ''.padEnd(12) + 'RIGHT PS/EDV'.padEnd(18) + 'LEFT PS/EDV');
+      b.table.rows.forEach(r => out.push(r[0].padEnd(12) + (r[1] || '').padEnd(18) + (r[2] || '')));
+      out.push('');
+    }
+  });
+  out.push('', 'IMPRESSION');
+  R.imps.forEach(i => out.push('• ' + i));
+  return out.join('\n');
+}
+
+if (typeof module !== 'undefined') module.exports = { buildReport, reportText, reportHTML, newItem, secState, activeSections };
+
+</script>
+<script>
+/* USG Reporter — UI */
+'use strict';
+
+const $ = s => document.querySelector(s);
+const LS = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } },
+};
+const Bridge = window.AndroidBridge || null;
+
+let settings = Object.assign({ inst: '', addr: '', doc: '', qual: '', reg: '', foot: '', letterhead: false, lhSpace: 35, machines: DEFAULT_MACHINES.slice() }, LS.get('usg_settings', {}));
+let state = null;
+let open = {};           // expanded section ids
+let editedHTML = null;   // manual edits in preview
+
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+function blankState(tpl) {
+  const last = LS.get('usg_last', {});
+  return { tpl, machine: last.machine || settings.machines[0] || '', patient: { name: '', age: '', sex: last.sex || 'F', pid: '', ref: '', date: today(), meno: 'Pre-menopausal', ind: '' }, secs: {}, extraImp: '' };
+}
+const save = () => { state._saved = false; LS.set('usg_draft', state); };
+
+/* In-app dialogs (Android WebView silently blocks window.confirm / prompt) */
+let modalDone = null;
+function closeModal(result) { $('#modal').hidden = true; $('#modal').innerHTML = ''; const d = modalDone; modalDone = null; if (d) d(result); }
+function ask(msg, okLabel, danger) {
+  return new Promise(res => {
+    modalDone = res;
+    $('#modal').innerHTML = '<div class="mbox"><div class="mmsg">' + esc(msg) + '</div><div class="mact"><button class="ghostb" id="dNo">Cancel</button><button class="pri' + (danger ? ' danger' : '') + '" id="dOk">' + esc(okLabel || 'OK') + '</button></div></div>';
+    $('#modal').hidden = false;
+    $('#dNo').onclick = () => closeModal(false); $('#dOk').onclick = () => closeModal(true);
+  });
+}
+function askText(title, placeholder) {
+  return new Promise(res => {
+    modalDone = res;
+    $('#modal').innerHTML = '<div class="mbox"><div class="mh">' + esc(title) + '</div><label class="fld wide"><input type="text" id="dTxt" placeholder="' + esc(placeholder || '') + '"></label><div class="mact"><button class="ghostb" id="dNo">Cancel</button><button class="pri" id="dOk">Add</button></div></div>';
+    $('#modal').hidden = false;
+    const inp = $('#dTxt'); setTimeout(() => inp.focus(), 50);
+    const ok = () => closeModal(inp.value.trim() || null);
+    $('#dNo').onclick = () => closeModal(null); $('#dOk').onclick = ok;
+    inp.onkeydown = e => { if (e.key === 'Enter') ok(); };
+  });
+}
+$('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(modalDone ? null : undefined); };
+
+function toast(msg) {
+  if (Bridge && Bridge.toast) { Bridge.toast(msg); return; }
+  const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('on'), 1800);
+}
+function show(view) {
+  document.querySelectorAll('.view').forEach(v => v.hidden = v.id !== view);
+  window.scrollTo(0, 0);
+}
+
+/* ================= HOME ================= */
+function renderHome() {
+  const draft = LS.get('usg_draft', null);
+  const h = [];
+  h.push('<div class="home-hd"><div><div class="app-t">USG Reporter</div><div class="app-s">Structured ultrasound reports</div></div><button class="icon" id="btnSet" title="Settings">⚙︎</button></div>');
+  if (draft && draft.tpl && !draft._saved) {
+    const t = TEMPLATES.find(x => x.id === draft.tpl);
+    h.push('<button class="resume" id="btnResume"><span>Resume draft</span><b>' + esc(t ? t.title : '') + (draft.patient.name ? ' · ' + esc(draft.patient.name) : '') + '</b></button>');
+  }
+  h.push('<div class="h-lab">New report</div><div class="tgrid">');
+  TEMPLATES.forEach(t => h.push('<button class="tcard" data-t="' + t.id + '"><span class="ti">' + t.icon + '</span><span>' + esc(t.title) + '</span></button>'));
+  h.push('</div>');
+  const hist = LS.get('usg_hist', []);
+  h.push('<div class="h-lab">Saved reports (' + hist.length + ')</div>');
+  if (!hist.length) h.push('<div class="muted pad">Saved reports appear here.</div>');
+  h.push('<div class="hist">' + hist.slice().reverse().map(r => '<div class="hrow" data-id="' + r.id + '"><div class="hmain"><b>' + esc(r.state.patient.name || 'Unnamed') + '</b><span>' + esc(TEMPLATES.find(t => t.id === r.state.tpl).title) + ' · ' + fmtDate(r.state.patient.date) + '</span></div><button class="sm" data-act="open">Open</button><button class="sm ghost" data-act="del">✕</button></div>').join('') + '</div>');
+  $('#home').innerHTML = h.join('');
+  $('#btnSet').onclick = openSettings;
+  if ($('#btnResume')) $('#btnResume').onclick = () => { state = draft; editedHTML = null; open = {}; renderBuilder(); show('builder'); };
+  document.querySelectorAll('.tcard').forEach(b => b.onclick = async () => {
+    if (draft && draft.tpl && !draft._saved && !(await ask('Start a new report? The unsaved draft will be discarded.', 'Start new', true))) return;
+    state = blankState(b.dataset.t); editedHTML = null; open = {}; save(); renderBuilder(); show('builder');
+  });
+  document.querySelectorAll('.hrow').forEach(row => row.querySelectorAll('button').forEach(b => b.onclick = async () => {
+    const all = LS.get('usg_hist', []), rec = all.find(r => r.id === row.dataset.id);
+    if (b.dataset.act === 'del') { if (await ask('Delete this saved report?', 'Delete', true)) { LS.set('usg_hist', all.filter(r => r.id !== rec.id)); renderHome(); } return; }
+    if (draft && draft.tpl && !draft._saved && draft._hid !== rec.id && !(await ask('You have an unsaved draft. Open this saved report and discard the draft?', 'Open', true))) return;
+    state = JSON.parse(JSON.stringify(rec.state)); state._hid = rec.id; state._saved = true; editedHTML = rec.html || null;
+    LS.set('usg_draft', state); renderPreview(); show('preview');
+  }));
+}
+
+/* ================= BUILDER ================= */
+function fieldHTML(f, val, path) {
+  const d = 'data-p="' + path + '"';
+  const u = f.u ? '<span class="u">' + esc(f.u) + '</span>' : '';
+  switch (f.t) {
+    case 'num': return '<label class="fld"><span>' + esc(f.l) + '</span><span class="inw"><input type="number" inputmode="decimal" step="any" ' + d + ' value="' + esc(val) + '">' + u + '</span></label>';
+    case 'txt': return '<label class="fld wide"><span>' + esc(f.l) + '</span><input type="text" ' + d + ' value="' + esc(val) + '"></label>';
+    case 'dims': { const a = Array.isArray(val) ? val : ['', '', ''];
+      return '<label class="fld wide"><span>' + esc(f.l) + '</span><span class="inw dims">' + [0, 1, 2].map(i => '<input type="number" inputmode="decimal" step="any" data-p="' + path + '" data-i="' + i + '" value="' + esc(a[i] || '') + '">').join('<i>×</i>') + u + '</span></label>'; }
+    case 'sel':
+      if (f.o.length <= 5 && f.o.every(o => o && o.length <= 16))
+        return '<div class="fld' + (f.o.join('').length > 18 ? ' wide' : '') + '"><span>' + esc(f.l) + '</span><div class="seg">' + f.o.map(o => '<button data-seg="' + path + '" data-o="' + esc(o) + '" class="' + (o === val ? 'on' : '') + '">' + esc(o) + '</button>').join('') + '</div></div>';
+      return '<label class="fld' + (f.o.some(o => o.length > 22) ? ' wide' : '') + '"><span>' + esc(f.l) + '</span><select ' + d + '>' + f.o.map(o => '<option value="' + esc(o) + '"' + (o === val ? ' selected' : '') + '>' + esc(o || '—') + '</option>').join('') + '</select></label>';
+    case 'chk': return '<button class="chip tog' + (val ? ' on' : '') + '" data-chk="' + path + '">' + esc(f.l) + '</button>';
+    case 'multi': return '<div class="fld wide"><span>' + esc(f.l) + '</span><div class="chips">' + f.o.map(o => '<button class="chip tog' + ((val || []).includes(o) ? ' on' : '') + '" data-multi="' + path + '" data-o="' + esc(o) + '">' + esc(o) + '</button>').join('') + '</div></div>';
+    case 'vtab': return vtabHTML(path);
+  }
+  return '';
+}
+function vtabHTML(path) {
+  const m = path.split('|'); const st = secState(state, m[0]).m;
+  const cell = (sd, vs, k) => '<input type="number" inputmode="decimal" step="any" data-p="' + m[0] + '|m|vt_' + sd + '_' + vs + '_' + k + '" value="' + esc(st['vt_' + sd + '_' + vs + '_' + k] || '') + '">';
+  return '<div class="vtab"><table><tr><th></th><th colspan="2">RIGHT</th><th colspan="2">LEFT</th></tr><tr><th></th><th>PSV</th><th>EDV</th><th>PSV</th><th>EDV</th></tr>' +
+    VESSELS.map(vs => '<tr><td>' + vs + '</td><td>' + cell('R', vs, 'ps') + '</td><td>' + cell('R', vs, 'ed') + '</td><td>' + cell('L', vs, 'ps') + '</td><td>' + cell('L', vs, 'ed') + '</td></tr>').join('') +
+    '</table><div class="muted small">ICA grading auto-applied per SRU consensus: PSV &lt;125 (with plaque) → &lt;50%; 125–230 → 50–69%; &gt;230 → ≥70%.</div></div>';
+}
+
+function secHTML(sec) {
+  const st = secState(state, sec.id);
+  const isOpen = !!open[sec.id];
+  const nf = st.items.length;
+  const r = buildSection(state, sec);
+  const abnormal = nf || r.imps.length && !(sec.impN && r.imps.length === 1 && r.imps[0] === sec.impN(makeCtx(state, sec, st)));
+  let h = '<section class="sec' + (isOpen ? ' open' : '') + '" data-sec="' + sec.id + '">';
+  h += '<header data-tog="' + sec.id + '"><span class="sn">' + esc(sec.name) + '</span><span class="badge ' + (abnormal ? 'ab' : 'nm') + '">' + (nf ? nf + ' finding' + (nf > 1 ? 's' : '') : abnormal ? 'auto' : 'Normal') + '</span><span class="car">' + (isOpen ? '▾' : '▸') + '</span></header>';
+  if (isOpen) {
+    h += '<div class="sb">';
+    if (sec.meas.length) h += '<div class="meas">' + sec.meas.map(f => fieldHTML(f, st.m[f.k], sec.id + '|m|' + f.k)).join('') + '</div>';
+    if (st.items.length) {
+      h += '<div class="items">' + st.items.map((it, idx) => {
+        const fd = sec.fd.find(f => f.id === it.fid);
+        const total = st.items.filter(o => o.fid === it.fid).length;
+        const nth = st.items.slice(0, idx + 1).filter(o => o.fid === it.fid).length;
+        const isLast = !st.items.slice(idx + 1).some(o => o.fid === it.fid);
+        let extra = '';
+        if (it.fid === 'nodule') { const t = tirads(it.v); extra = '<span class="tr tr' + t.tr + '">' + t.p + ' pts · ' + t.name + (it.collapsed ? '' : ' · ' + t.rec) + '</span>'; }
+        const title = fd.rep && total > 1 ? fd.l.replace(/ \(.*\)$/, '') + ' ' + nth : fd.l;
+        const sum = it.collapsed ? itemSummary(fd, it.v) : '';
+        let out = '<div class="item' + (it.collapsed ? ' col' : '') + '"><div class="ih">' +
+          (fd.fs.length ? '<button class="ct" data-col="' + sec.id + '|' + idx + '">' + (it.collapsed ? '▸' : '▾') + '</button>' : '') +
+          '<b data-col="' + sec.id + '|' + idx + '">' + esc(title) + '</b>' + extra +
+          (fd.rep ? '<button class="dup" data-dup="' + sec.id + '|' + idx + '" title="Duplicate">⧉</button>' : '') +
+          '<button class="x" data-rm="' + sec.id + '|' + idx + '">✕</button></div>' +
+          (it.collapsed ? (sum ? '<div class="isum">' + esc(sum) + '</div>' : '') :
+            (fd.fs.length ? '<div class="ifs">' + fd.fs.map(f => fieldHTML(f, it.v[f.k], sec.id + '|i|' + idx + '|' + f.k)).join('') + '</div>' : '')) + '</div>';
+        if (fd.rep && isLast) out += '<button class="another" data-another="' + sec.id + '|' + fd.id + '">+ Add another ' + esc(lc(fd.l.replace(/ \(.*\)$/, ''))) + '</button>';
+        return out;
+      }).join('') + '</div>';
+    }
+    if (sec.fd.length) {
+      h += '<div class="add-l">Add finding</div><div class="chips add">' + sec.fd.map(fd => {
+        const on = st.items.some(i => i.fid === fd.id);
+        return '<button class="chip' + (on ? ' sel' : '') + '" data-add="' + sec.id + '|' + fd.id + '">' + (on && fd.rep ? '+ ' : '') + esc(fd.l) + '</button>';
+      }).join('') + '</div>';
+    }
+    h += '<label class="fld wide note"><span>Additional remarks (appended)</span><textarea rows="2" data-p="' + sec.id + '|note">' + esc(st.note || '') + '</textarea></label>';
+    h += '<div class="prev"><div class="pl">Report text</div>' + (sec.lab ? '<b>' + esc(sec.lab) + ' :</b> ' : '') + esc(r.text) + (r.imps.length ? '<div class="pi">→ ' + r.imps.map(i => esc(typeof i === 'string' ? i : i.f(i.side === 'R' ? 'right kidney' : 'left kidney'))).join('<br>→ ') + '</div>' : '') + '</div>';
+    h += '</div>';
+  }
+  return h + '</section>';
+}
+
+async function addMachine() {
+  const v = await askText('Add machine', 'e.g. Philips EPIQ 7');
+  if (!v) return;
+  if (!settings.machines.includes(v)) { settings.machines.push(v); LS.set('usg_settings', settings); }
+  state.machine = v; LS.set('usg_last', Object.assign(LS.get('usg_last', {}), { machine: v })); save(); renderBuilder(); toast('Machine added');
+}
+
+// new instance of a repeatable finding: collapse the earlier ones and insert after the last of its kind
+function addInstance(st, fd) {
+  let last = -1;
+  st.items.forEach((o, i) => { if (o.fid === fd.id) { o.collapsed = true; last = i; } });
+  const it = newItem(fd);
+  if (last >= 0) st.items.splice(last + 1, 0, it); else st.items.push(it);
+}
+
+function itemSummary(fd, v) {
+  const bits = [];
+  fd.fs.forEach(f => { const x = v[f.k];
+    if (f.t === 'dims') { const d = dims(x); if (d) bits.push(d + ' ' + (f.u || '')); }
+    else if (f.t === 'multi') { if (x && x.length) bits.push(x.join(', ')); }
+    else if (f.t === 'chk') { if (x) bits.push(f.l); }
+    else if (has(x)) bits.push(x + (f.u ? ' ' + f.u : '')); });
+  return bits.slice(0, 6).join(' · ');
+}
+
+function renderBuilder() {
+  const tpl = TEMPLATES.find(t => t.id === state.tpl);
+  const p = state.patient;
+  const mach = settings.machines.slice(); if (state.machine && !mach.includes(state.machine)) mach.push(state.machine);
+  let h = '<div class="bar"><button class="icon" id="bBack">‹</button><div class="bt">' + esc(tpl.title) + '</div><button class="pri" id="bPrev">Preview</button></div>';
+  h += '<div class="card pt-card"><div class="grid2">' +
+    '<label class="fld wide"><span>Patient name</span><input type="text" data-pt="name" value="' + esc(p.name) + '"></label>' +
+    '<label class="fld"><span>Age</span><input type="text" inputmode="numeric" data-pt="age" value="' + esc(p.age) + '"></label>' +
+    '<div class="fld"><span>Sex</span><div class="seg"><button data-sex="F" class="' + (p.sex === 'F' ? 'on' : '') + '">Female</button><button data-sex="M" class="' + (p.sex === 'M' ? 'on' : '') + '">Male</button></div></div>' +
+    (p.sex === 'F' && tpl.secs.includes('uterus') ? '<label class="fld"><span>Menopausal status</span><select data-pt="meno">' + ['Pre-menopausal', 'Post-menopausal'].map(o => '<option' + (p.meno === o ? ' selected' : '') + '>' + o + '</option>').join('') + '</select></label>' : '') +
+    '<label class="fld"><span>Patient ID</span><input type="text" data-pt="pid" value="' + esc(p.pid) + '"></label>' +
+    '<label class="fld"><span>Date</span><input type="date" data-pt="date" value="' + esc(p.date) + '"></label>' +
+    '<label class="fld wide"><span>Ref. by</span><input type="text" data-pt="ref" value="' + esc(p.ref) + '"></label>' +
+    '<div class="fld wide"><span>Machine</span><div class="inw"><select id="mach">' + mach.map(m => '<option' + (m === state.machine ? ' selected' : '') + '>' + esc(m) + '</option>').join('') + '<option value="">— none (omit line) —</option><option value="__add">+ Add machine…</option></select><button class="ghostb addm" id="machAdd">+ Add</button></div></div>' +
+    '<label class="fld wide"><span>Clinical details (optional)</span><input type="text" data-pt="ind" value="' + esc(p.ind) + '"></label>' +
+    '</div></div>';
+  h += '<div class="secs">' + activeSections(state).map(secHTML).join('') + '</div>';
+  h += '<div class="card"><label class="fld wide"><span>Additional impression lines (one per line)</span><textarea rows="2" id="extraImp">' + esc(state.extraImp || '') + '</textarea></label></div>';
+  h += '<div class="bottom-pad"></div><button class="fab" id="fabPrev">Preview report ›</button>';
+  $('#builder').innerHTML = h;
+  bindBuilder();
+}
+
+function rerenderSec(id) {
+  const el = document.querySelector('.sec[data-sec="' + id + '"]');
+  if (!el) return;
+  const tmp = document.createElement('div'); tmp.innerHTML = secHTML(SECTIONS[id]);
+  el.replaceWith(tmp.firstChild);
+  bindBuilder();
+}
+function refreshPreviews(id) {
+  // update preview/badge only without re-rendering inputs (keeps focus while typing)
+  const el = document.querySelector('.sec[data-sec="' + id + '"]');
+  if (!el) return;
+  const tmp = document.createElement('div'); tmp.innerHTML = secHTML(SECTIONS[id]);
+  const n = tmp.firstChild;
+  const a = el.querySelector('.prev'), b = n.querySelector('.prev'); if (a && b) a.replaceWith(b);
+  el.querySelector('.badge').replaceWith(n.querySelector('.badge'));
+  const trs = n.querySelectorAll('.tr'), old = el.querySelectorAll('.tr'); old.forEach((o, i) => trs[i] && o.replaceWith(trs[i]));
+}
+function setPath(path, value, idx) {
+  const [sid, kind, a, b] = path.split('|');
+  const st = secState(state, sid);
+  if (kind === 'note') { st.note = value; return sid; }
+  const obj = kind === 'm' ? st.m : st.items[+a].v;
+  const key = kind === 'm' ? a : b;
+  if (idx !== undefined) { if (!Array.isArray(obj[key])) obj[key] = ['', '', '']; obj[key][idx] = value; }
+  else obj[key] = value;
+  return sid;
+}
+function bindBuilder() {
+  const B = $('#builder');
+  $('#bBack').onclick = () => { save(); renderHome(); show('home'); };
+  $('#bPrev').onclick = $('#fabPrev').onclick = () => { save(); editedHTML = null; renderPreview(); show('preview'); };
+  B.querySelectorAll('[data-pt]').forEach(el => el.oninput = el.onchange = () => { state.patient[el.dataset.pt] = el.value; save(); if (el.dataset.pt === 'meno') activeSections(state).forEach(s => open[s.id] && refreshPreviews(s.id)); });
+  B.querySelectorAll('[data-sex]').forEach(el => el.onclick = () => { state.patient.sex = el.dataset.sex; LS.set('usg_last', Object.assign(LS.get('usg_last', {}), { sex: el.dataset.sex })); save(); renderBuilder(); });
+  $('#machAdd').onclick = addMachine;
+  $('#mach').onchange = e => {
+    let v = e.target.value;
+    if (v === '__add') { e.target.value = state.machine; addMachine(); return; }
+    state.machine = v; LS.set('usg_last', Object.assign(LS.get('usg_last', {}), { machine: v })); save(); renderBuilder();
+  };
+  $('#extraImp').oninput = e => { state.extraImp = e.target.value; save(); };
+  B.querySelectorAll('[data-tog]').forEach(el => el.onclick = () => { const id = el.dataset.tog; open[id] = !open[id]; rerenderSec(id); });
+  B.querySelectorAll('input[data-p], textarea[data-p]').forEach(el => el.oninput = () => {
+    const sid = setPath(el.dataset.p, el.value, el.dataset.i !== undefined ? +el.dataset.i : undefined); save(); refreshPreviews(sid);
+  });
+  B.querySelectorAll('select[data-p]').forEach(el => el.onchange = () => { const sid = setPath(el.dataset.p, el.value); save(); refreshPreviews(sid); });
+  B.querySelectorAll('[data-seg]').forEach(el => el.onclick = () => { const sid = setPath(el.dataset.seg, el.dataset.o); save(); rerenderSec(sid); });
+  B.querySelectorAll('[data-chk]').forEach(el => el.onclick = () => {
+    const [sid, , a, b] = el.dataset.chk.split('|'); const v = secState(state, sid).items[+a].v; v[b] = !v[b]; save(); rerenderSec(sid);
+  });
+  B.querySelectorAll('[data-multi]').forEach(el => el.onclick = () => {
+    const [sid, , a, b] = el.dataset.multi.split('|'); const v = secState(state, sid).items[+a].v;
+    const arr = v[b] = v[b] || []; const o = el.dataset.o; const i = arr.indexOf(o); if (i >= 0) arr.splice(i, 1); else arr.push(o); save(); rerenderSec(sid);
+  });
+  B.querySelectorAll('[data-add]').forEach(el => el.onclick = () => {
+    const [sid, fid] = el.dataset.add.split('|'); const sec = SECTIONS[sid], fd = sec.fd.find(f => f.id === fid), st = secState(state, sid);
+    const exists = st.items.findIndex(i => i.fid === fid);
+    if (exists >= 0 && !fd.rep) { st.items.splice(exists, 1); } else addInstance(st, fd);
+    save(); rerenderSec(sid);
+  });
+  B.querySelectorAll('[data-another]').forEach(el => el.onclick = () => {
+    const [sid, fid] = el.dataset.another.split('|'); addInstance(secState(state, sid), SECTIONS[sid].fd.find(f => f.id === fid)); save(); rerenderSec(sid);
+  });
+  B.querySelectorAll('[data-dup]').forEach(el => el.onclick = () => {
+    const [sid, idx] = el.dataset.dup.split('|'); const st = secState(state, sid);
+    st.items.forEach(o => { if (o.fid === st.items[+idx].fid) o.collapsed = true; });
+    const copy = JSON.parse(JSON.stringify(st.items[+idx])); copy.uid = Math.random().toString(36).slice(2, 9); copy.collapsed = false;
+    st.items.splice(+idx + 1, 0, copy); save(); rerenderSec(sid); toast('Duplicated – edit size / location');
+  });
+  B.querySelectorAll('[data-col]').forEach(el => el.onclick = () => {
+    const [sid, idx] = el.dataset.col.split('|'); const it = secState(state, sid).items[+idx]; it.collapsed = !it.collapsed; save(); rerenderSec(sid);
+  });
+  B.querySelectorAll('[data-rm]').forEach(el => el.onclick = () => { const [sid, idx] = el.dataset.rm.split('|'); secState(state, sid).items.splice(+idx, 1); save(); rerenderSec(sid); });
+}
+
+/* ================= PREVIEW ================= */
+function renderPreview() {
+  let h = '<div class="bar"><button class="icon" id="pBack">‹</button><div class="bt">Report</div><button class="ghostb" id="pEdit">Edit text</button><button class="icon" id="pHome" title="Home">⌂</button></div>';
+  h += '<div class="paper"><div id="rep" spellcheck="false">' + (editedHTML || reportHTML(state, settings)) + '</div></div>';
+  h += '<div class="actions"><button id="aCopy">Copy</button><button id="aShare">Share</button><button id="aPrint" class="pri">Print / PDF</button><button id="aSave">Save</button></div>';
+  $('#preview').innerHTML = h;
+  const rep = $('#rep');
+  $('#pBack').onclick = async () => {
+    if (editedHTML && !(await ask('Going back to the builder discards the manual text edits. Continue?', 'Discard edits', true))) return;
+    editedHTML = null; renderBuilder(); show('builder');
+  };
+  $('#pHome').onclick = () => { renderHome(); show('home'); };
+  $('#pEdit').onclick = () => {
+    const on = rep.contentEditable !== 'true'; rep.contentEditable = on; rep.classList.toggle('editing', on);
+    $('#pEdit').textContent = on ? 'Done' : 'Edit text'; if (on) rep.focus(); else editedHTML = rep.innerHTML;
+  };
+  rep.oninput = () => { editedHTML = rep.innerHTML; state._saved = false; LS.set('usg_draft', state); };
+  const text = () => rep.innerText.replace(/\n{3,}/g, '\n\n').trim();
+  $('#aCopy').onclick = () => {
+    if (Bridge) { Bridge.copy(text()); return; }
+    const t = text();
+    const fallback = () => { const ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;opacity:0'; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length); const ok = document.execCommand('copy'); ta.remove(); toast(ok ? 'Report copied' : 'Copy failed'); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(() => toast('Report copied'), fallback); else fallback();
+  };
+  $('#aShare').onclick = () => {
+    if (Bridge) { Bridge.share(text(), fileTitle()); return; }
+    if (navigator.share) navigator.share({ title: fileTitle(), text: text() }).catch(() => {}); else $('#aCopy').onclick();
+  };
+  $('#aPrint').onclick = () => {
+    const doc = printDoc(rep.innerHTML);
+    if (Bridge) { Bridge.print(doc, fileTitle()); return; }
+    // iOS / browsers: print the on-page report via print CSS (popups are blocked in home-screen apps).
+    // In the iOS print sheet, pinch-out on the preview (or Share → Save to Files) to get a PDF.
+    const t0 = document.title; document.title = fileTitle(); window.print(); setTimeout(() => { document.title = t0; }, 1000);
+  };
+  $('#aSave').onclick = () => {
+    const all = LS.get('usg_hist', []);
+    const id = state._hid || Date.now().toString(36);
+    state._hid = id;
+    const rec = { id, state: JSON.parse(JSON.stringify(Object.assign({}, state, { _saved: true }))), html: editedHTML };
+    const i = all.findIndex(r => r.id === id); if (i >= 0) all[i] = rec; else all.push(rec);
+    LS.set('usg_hist', all.slice(-300)); state._saved = true; LS.set('usg_draft', state); toast('Report saved');
+  };
+}
+function fileTitle() { const p = state.patient; return ('USG ' + TEMPLATES.find(t => t.id === state.tpl).title + ' ' + (p.name || '') + ' ' + fmtDate(p.date)).trim(); }
+function printDoc(inner) {
+  return '<!doctype html><html><head><meta charset="utf-8"><title>' + esc(fileTitle()) + '</title><style>' + REPORT_CSS + '@page{size:A4;margin:14mm 16mm}body{margin:0}</style></head><body>' + inner + '</body></html>';
+}
+
+/* ================= SETTINGS ================= */
+function openSettings() {
+  const s = settings;
+  $('#modal').innerHTML = '<div class="mbox"><div class="mh">Settings</div>' +
+    '<label class="fld wide"><span>Hospital / centre name</span><input id="sInst" value="' + esc(s.inst) + '"></label>' +
+    '<label class="fld wide"><span>Address line</span><input id="sAddr" value="' + esc(s.addr) + '"></label>' +
+    '<button class="chip tog' + (s.letterhead ? ' on' : '') + '" id="sLh">Printing on pre-printed letterhead (leave top space)</button>' +
+    '<label class="fld"><span>Top space (mm)</span><input type="number" id="sLhs" value="' + esc(s.lhSpace) + '"></label>' +
+    '<label class="fld wide"><span>Reporting doctor</span><input id="sDoc" value="' + esc(s.doc) + '"></label>' +
+    '<label class="fld wide"><span>Qualification / designation</span><input id="sQual" value="' + esc(s.qual) + '"></label>' +
+    '<label class="fld wide"><span>Registration no.</span><input id="sReg" value="' + esc(s.reg) + '"></label>' +
+    '<label class="fld wide"><span>Footer note</span><input id="sFoot" value="' + esc(s.foot) + '" placeholder="e.g. Kindly correlate clinically."></label>' +
+    '<label class="fld wide"><span>Machines (one per line)</span><textarea id="sMach" rows="4">' + esc(s.machines.join('\n')) + '</textarea></label>' +
+    (Bridge ? '' : '<div class="fld wide"><span>Backup (saved reports + settings)</span><div class="inw"><button class="ghostb" id="sExp">Export backup</button><label class="ghostb filel">Restore backup<input type="file" id="sImp" accept=".json,application/json" hidden></label></div></div>') +
+    '<div class="mact"><button class="ghostb" id="sCancel">Cancel</button><button class="pri" id="sOk">Save</button></div></div>';
+  $('#modal').hidden = false;
+  let lh = s.letterhead;
+  $('#sLh').onclick = e => { lh = !lh; e.target.classList.toggle('on', lh); };
+  $('#sCancel').onclick = () => closeModal();
+  if ($('#sExp')) $('#sExp').onclick = exportBackup;
+  if ($('#sImp')) $('#sImp').onchange = e => importBackup(e.target.files[0]);
+  $('#sOk').onclick = () => {
+    Object.assign(settings, { inst: $('#sInst').value, addr: $('#sAddr').value, letterhead: lh, lhSpace: $('#sLhs').value, doc: $('#sDoc').value, qual: $('#sQual').value, reg: $('#sReg').value, foot: $('#sFoot').value,
+      machines: $('#sMach').value.split('\n').map(x => x.trim()).filter(Boolean) });
+    LS.set('usg_settings', settings); closeModal(); toast('Settings saved'); if (!$('#builder').hidden) renderBuilder();
+  };
+}
+
+/* ================= BACKUP ================= */
+async function exportBackup() {
+  const data = JSON.stringify({ app: 'usg-reporter', v: 1, at: new Date().toISOString(), settings, hist: LS.get('usg_hist', []) });
+  const name = 'USG-Reporter-backup-' + today() + '.json';
+  const file = new File([data], name, { type: 'application/json' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) { try { await navigator.share({ files: [file], title: name }); return; } catch (e) { if (e.name === 'AbortError') return; } }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+}
+function importBackup(f) {
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = async () => {
+    let d; try { d = JSON.parse(r.result); } catch (e) { toast('Not a valid backup file'); return; }
+    if (!d || d.app !== 'usg-reporter') { toast('Not a USG Reporter backup'); return; }
+    if (!(await ask('Restore ' + (d.hist || []).length + ' saved reports and settings? Reports with the same ID are replaced; others are kept.', 'Restore'))) return;
+    const cur = LS.get('usg_hist', []); const ids = new Set((d.hist || []).map(x => x.id));
+    LS.set('usg_hist', cur.filter(x => !ids.has(x.id)).concat(d.hist || []));
+    if (d.settings) { settings = Object.assign(settings, d.settings); LS.set('usg_settings', settings); }
+    renderHome(); show('home'); toast('Backup restored');
+  };
+  r.readAsText(f);
+}
+
+/* Android back button */
+window.__onBack = function () {
+  if (!$('#modal').hidden) { closeModal(modalDone ? null : undefined); return true; }
+  if (!$('#preview').hidden) { $('#pBack').onclick(); return true; }
+  if (!$('#builder').hidden) { $('#bBack').onclick(); return true; }
+  return false;
+};
+
+renderHome(); show('home');
+
+/* Offline support when served over http(s) (iOS / browser install); not used inside the Android shell */
+if (!Bridge && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+</script>
+</body>
+</html>

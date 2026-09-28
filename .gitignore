@@ -1,0 +1,12 @@
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+android/app/src/main/assets/
+ios/build*/
+ios-webapp/
+USG-Reporter-iOS-webapp/
+*.apk
+*.ipa
+*.zip
+.DS_Store
