@@ -1,5 +1,5 @@
 /* USG Reporter offline cache. Bump VERSION whenever any app file changes. */
-const VERSION = 'usg-1.3';
+const VERSION = 'usg-1.3.1';
 const FILES = ['./', './index.html', './data.js', './engine.js', './app.js', './manifest.webmanifest',
   './icons/apple-touch-icon.png', './icons/icon-192.png', './icons/icon-512.png'];
 

@@ -62,6 +62,12 @@ function renderHome() {
     const t = TEMPLATES.find(x => x.id === draft.tpl);
     h.push('<button class="resume" id="btnResume"><span>Resume draft</span><b>' + esc(t ? t.title : '') + (draft.patient.name ? ' · ' + esc(draft.patient.name) : '') + '</b></button>');
   }
+  // iPhone/iPad Safari, not yet installed: show how to add to the home screen
+  const iOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!Bridge && iOS && !navigator.standalone && location.protocol.startsWith('http') && !LS.get('usg_hint_off', false)) {
+    h.push('<div class="hint"><b>Install on your iPhone:</b> in Safari tap <b>Share</b> → scroll down → <b>Add to Home Screen</b>. Not listed? Scroll to the bottom → <b>Edit Actions</b> → add it. ' +
+      '<span class="muted">Must be opened in Safari itself (not inside WhatsApp / Gmail / Chrome).</span><button class="x" id="hintX">✕</button></div>');
+  }
   h.push('<div class="h-lab">New report</div><div class="tgrid">');
   TEMPLATES.forEach(t => h.push('<button class="tcard" data-t="' + t.id + '"><span class="ti">' + t.icon + '</span><span>' + esc(t.title) + '</span></button>'));
   h.push('</div>');
@@ -71,6 +77,7 @@ function renderHome() {
   h.push('<div class="hist">' + hist.slice().reverse().map(r => '<div class="hrow" data-id="' + r.id + '"><div class="hmain"><b>' + esc(r.state.patient.name || 'Unnamed') + '</b><span>' + esc(TEMPLATES.find(t => t.id === r.state.tpl).title) + ' · ' + fmtDate(r.state.patient.date) + '</span></div><button class="sm" data-act="open">Open</button><button class="sm ghost" data-act="del">✕</button></div>').join('') + '</div>');
   $('#home').innerHTML = h.join('');
   $('#btnSet').onclick = openSettings;
+  if ($('#hintX')) $('#hintX').onclick = () => { LS.set('usg_hint_off', true); renderHome(); };
   if ($('#btnResume')) $('#btnResume').onclick = () => { state = draft; editedHTML = null; open = {}; renderBuilder(); show('builder'); };
   document.querySelectorAll('.tcard').forEach(b => b.onclick = async () => {
     if (draft && draft.tpl && !draft._saved && !(await ask('Start a new report? The unsaved draft will be discarded.', 'Start new', true))) return;

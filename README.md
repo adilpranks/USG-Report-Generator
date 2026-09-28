@@ -13,7 +13,7 @@ iOS `.ipa` and Android `.apk` → [Releases](https://github.com/adilpranks/USG-R
 | `web/` | The app (HTML/JS) — single source for every platform |
 | `android/` | Android WebView shell → APK (`./gradlew :app:assembleDebug`, copy `web/` into `app/src/main/assets/` first) |
 | `ios/` | iOS UIKit/WKWebView shell → `.ipa` (`ios/build-ipa.sh`, see `ios/README.md`) |
-| `.github/workflows/` | `build-ipa.yml` (iOS build on GitHub macOS) · `pages.yml` (web app on GitHub Pages) |
+| `.github/workflows/` | `build-apps.yml` (iOS .ipa + Android .apk; tagged versions → Release) · `pages.yml` (web app on GitHub Pages) |
 
 Findings library: `web/data.js`. Report engine: `web/engine.js`. UI: `web/app.js`.
 Clinical decision support only — the reporting radiologist is responsible for the final report.
